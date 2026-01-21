@@ -1,0 +1,328 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services {
+  .section-intro {
+    margin-bottom: 48px;
+
+    .intro-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--heading-color);
+      letter-spacing: -0.01em;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .btn-view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s;
+
+      i {
+        font-size: 18px;
+        transition: transform 0.3s;
+      }
+
+      &:hover {
+        color: color-mix(in srgb, var(--accent-color), #000 15%);
+
+        i {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    @media (max-width: 992px) {
+      .intro-title {
+        font-size: 28px;
+      }
+
+      .btn-view-all {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .service-item {
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-radius: 12px;
+    padding: 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+
+      .icon-wrapper {
+        background: var(--accent-color);
+        transform: scale(1.05);
+
+        i {
+          color: var(--contrast-color);
+        }
+      }
+
+      .service-cta i {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .service-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+
+    i {
+      font-size: 28px;
+      color: var(--accent-color);
+      transition: color 0.3s;
+    }
+  }
+
+  .badge-popular {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: var(--contrast-color);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--heading-color);
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 15px;
+    color: color-mix(in srgb, var(--default-color), transparent 25%);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    flex-grow: 1;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--default-color);
+      margin-bottom: 10px;
+      line-height: 1.5;
+
+      i {
+        font-size: 16px;
+        color: var(--accent-color);
+        flex-shrink: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: auto;
+    transition: all 0.3s;
+
+    i {
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      color: color-mix(in srgb, var(--accent-color), #000 15%);
+    }
+  }
+
+  .cta-banner {
+    background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #8b5cf6 30%));
+    border-radius: 16px;
+    padding: 48px;
+    margin-top: 64px;
+
+    .cta-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--contrast-color);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--contrast-color);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 16px;
+      color: color-mix(in srgb, var(--contrast-color), transparent 15%);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--contrast-color);
+      color: var(--accent-color);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-bottom: 12px;
+
+      i {
+        font-size: 16px;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        color: var(--accent-color);
+      }
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--contrast-color);
+      padding: 14px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-left: 12px;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.5);
+        color: var(--contrast-color);
+      }
+    }
+
+    @media (max-width: 992px) {
+      padding: 40px 32px;
+
+      h3 {
+        font-size: 24px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: block;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-item {
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .icon-wrapper {
+      width: 48px;
+      height: 48px;
+
+      i {
+        font-size: 24px;
+      }
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .feature-list li {
+      font-size: 13px;
+
+      i {
+        font-size: 14px;
+      }
+    }
+
+    .cta-banner {
+      padding: 32px 24px;
+      margin-top: 48px;
+
+      h3 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}

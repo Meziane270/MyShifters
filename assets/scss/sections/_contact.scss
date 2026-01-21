@@ -1,0 +1,404 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  background: linear-gradient(180deg, var(--background-color) 0%, color-mix(in srgb, var(--accent-color), transparent 97%) 100%);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--accent-color), transparent 95%) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-intro {
+    margin-bottom: 40px;
+
+    .intro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      border-radius: 20px;
+      margin-bottom: 24px;
+
+      i {
+        font-size: 16px;
+        color: var(--accent-color);
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--accent-color);
+      }
+    }
+
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--heading-color);
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      margin-bottom: 0;
+    }
+  }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .channel-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px color-mix(in srgb, var(--default-color), transparent 92%);
+      border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+
+      .channel-icon {
+        background: var(--accent-color);
+        transform: scale(1.05);
+
+        i {
+          color: var(--contrast-color);
+        }
+      }
+    }
+
+    .channel-icon {
+      width: 48px;
+      height: 48px;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      i {
+        font-size: 20px;
+        color: var(--accent-color);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+
+    .channel-info {
+      flex: 1;
+
+      h5 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: var(--heading-color);
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 4px;
+        color: var(--default-color);
+      }
+
+      .channel-meta {
+        font-size: 13px;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+      }
+    }
+  }
+
+  .trust-indicators {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-radius: 12px;
+
+    .indicator-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+      border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .indicator-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--accent-color);
+        margin-bottom: 4px;
+        line-height: 1;
+      }
+
+      .indicator-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+      }
+    }
+  }
+
+  .form-wrapper {
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 94%);
+
+    .form-header {
+      margin-bottom: 32px;
+
+      h3 {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+        color: var(--heading-color);
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: color-mix(in srgb, var(--default-color), transparent 25%);
+        margin-bottom: 0;
+      }
+    }
+
+    .php-email-form {
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--heading-color);
+          margin-bottom: 8px;
+        }
+
+        .form-control {
+          width: 100%;
+          height: 48px;
+          padding: 12px 16px;
+          font-size: 15px;
+          color: var(--default-color);
+          background-color: var(--surface-color);
+          border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+          border-radius: 8px;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+          &:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 90%);
+          }
+
+          &::placeholder {
+            color: color-mix(in srgb, var(--default-color), transparent 60%);
+          }
+        }
+
+        select.form-control {
+          cursor: pointer;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 16px center;
+          padding-right: 40px;
+        }
+
+        textarea.form-control {
+          height: auto;
+          min-height: 120px;
+          resize: vertical;
+          font-family: inherit;
+        }
+      }
+
+      .form-check-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 24px;
+
+        .form-check-input {
+          width: 18px;
+          height: 18px;
+          margin-top: 2px;
+          cursor: pointer;
+          border: 1px solid color-mix(in srgb, var(--default-color), transparent 75%);
+          border-radius: 4px;
+          flex-shrink: 0;
+
+          &:checked {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+          }
+        }
+
+        .form-check-label {
+          font-size: 14px;
+          color: color-mix(in srgb, var(--default-color), transparent 20%);
+          cursor: pointer;
+          line-height: 1.5;
+        }
+      }
+
+      .submit-btn {
+        width: 100%;
+        height: 52px;
+        background: var(--accent-color);
+        color: var(--contrast-color);
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-bottom: 16px;
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), #000 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-color), transparent 70%);
+
+          i {
+            transform: translateX(3px);
+          }
+        }
+
+        i {
+          font-size: 16px;
+          transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      }
+
+      .form-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding-top: 16px;
+        border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+
+        i {
+          font-size: 16px;
+          color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+
+        span {
+          font-size: 13px;
+          color: color-mix(in srgb, var(--default-color), transparent 40%);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .contact-intro {
+      h2 {
+        font-size: 32px;
+      }
+    }
+
+    .trust-indicators {
+      .indicator-item {
+        .indicator-value {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .form-wrapper {
+      margin-top: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-intro {
+      h2 {
+        font-size: 28px;
+      }
+    }
+
+    .trust-indicators {
+      flex-direction: column;
+      gap: 16px;
+
+      .indicator-item {
+        border-right: none;
+        border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        padding: 0 0 16px 0;
+
+        &:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .form-wrapper {
+      padding: 32px 24px;
+
+      .form-header {
+        h3 {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .contact-intro {
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    .channel-card {
+      flex-direction: column;
+      text-align: center;
+
+      .channel-icon {
+        margin: 0 auto;
+      }
+    }
+  }
+}

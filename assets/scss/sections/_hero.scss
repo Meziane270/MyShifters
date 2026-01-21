@@ -1,0 +1,300 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0 80px;
+
+  .hero-content {
+    .hero-badge {
+      margin-bottom: 24px;
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background: color-mix(in srgb, var(--accent-color), transparent 90%);
+        color: var(--accent-color);
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+      }
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+
+      @media (max-width: 992px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin-bottom: 32px;
+    }
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 16px 32px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 16px;
+
+      &.btn-primary {
+        background: var(--accent-color);
+        color: var(--contrast-color);
+        border: 1px solid var(--accent-color);
+        box-shadow: 0 4px 6px color-mix(in srgb, var(--accent-color), transparent 60%);
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), black 10%);
+          border-color: color-mix(in srgb, var(--accent-color), black 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px color-mix(in srgb, var(--accent-color), transparent 50%);
+        }
+      }
+
+      &.btn-outline {
+        background: var(--surface-color);
+        color: var(--default-color);
+        border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+
+        &:hover {
+          background: color-mix(in srgb, var(--accent-color), transparent 95%);
+          border-color: var(--accent-color);
+          color: var(--accent-color);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .hero-visual {
+    position: relative;
+
+    .product-mockup {
+      position: relative;
+
+      .floating-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        min-width: 140px;
+        backdrop-filter: blur(10px);
+
+        .card-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+        }
+
+        .card-content {
+          .card-value {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--heading-color);
+          }
+
+          .card-label {
+            font-size: 12px;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+            margin-top: 2px;
+          }
+        }
+
+        &.card-1 {
+          top: 20%;
+          left: -60px;
+          animation: float 6s ease-in-out infinite;
+
+          .card-icon {
+            background: color-mix(in srgb, #10b981, transparent 90%);
+            color: #10b981;
+          }
+        }
+
+        &.card-2 {
+          top: 60%;
+          right: -50px;
+          animation: float 6s ease-in-out infinite 2s;
+
+          .card-icon {
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            color: var(--accent-color);
+          }
+        }
+
+        &.card-3 {
+          bottom: 10%;
+          left: -40px;
+          animation: float 6s ease-in-out infinite 4s;
+
+          .card-icon {
+            background: color-mix(in srgb, #f59e0b, transparent 90%);
+            color: #f59e0b;
+          }
+        }
+      }
+    }
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    .gradient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+
+      &.blob-1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 85%), color-mix(in srgb, #10b981, transparent 85%));
+        top: -200px;
+        right: -200px;
+        animation: rotate 20s linear infinite;
+      }
+
+      &.blob-2 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, color-mix(in srgb, #f59e0b, transparent 85%), color-mix(in srgb, var(--accent-color), transparent 85%));
+        bottom: -150px;
+        left: -150px;
+        animation: rotate 25s linear infinite reverse;
+      }
+    }
+
+    .grid-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(color-mix(in srgb, var(--accent-color), transparent 95%) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--accent-color), transparent 95%) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .hero-content {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-visual {
+      .product-mockup {
+        .floating-card {
+          &.card-1 {
+            left: -30px;
+          }
+
+          &.card-2 {
+            right: -30px;
+          }
+
+          &.card-3 {
+            left: -20px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 80px 0 60px;
+
+    .hero-buttons {
+      justify-content: center;
+
+      .btn {
+        padding: 14px 24px;
+        font-size: 15px;
+      }
+    }
+
+    .hero-trust {
+      .trust-logos {
+        justify-content: center;
+        gap: 16px;
+
+        .trust-logo {
+          height: 28px;
+        }
+      }
+    }
+
+    .hero-visual {
+      .product-mockup {
+        .floating-card {
+          display: none;
+        }
+      }
+    }
+  }
+}

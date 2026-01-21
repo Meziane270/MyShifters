@@ -1,0 +1,69 @@
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 90px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+
+  h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 8px 20px;
+    margin: 0;
+    background: color-mix(in srgb, var(--accent-color), transparent 82%);
+    color: var(--accent-color);
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 50px;
+    font-family: var(--default-font);
+  }
+
+  div {
+    color: var(--heading-color);
+    margin: 10px 0 0 0;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: var(--heading-font);
+
+    .description-title {
+      color: var(--accent-color);
+    }
+  }
+}
+
+@import './sections/_hero.scss';
+@import './sections/_about.scss';
+@import './sections/_services.scss';
+@import './sections/_portfolio.scss';
+@import './sections/_why-us.scss';
+@import './sections/_testimonials.scss';
+@import './sections/_team.scss';
+@import './sections/_contact.scss';
+@import './sections/_portfolio-details.scss';
+@import './sections/_service-details.scss';
+@import './sections/_terms-of-service.scss';
+@import './sections/_privacy.scss';
+@import './sections/_error-404.scss';
+@import './sections/_starter-section.scss';
