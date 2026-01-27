@@ -48,7 +48,7 @@ window.initUnifiedForm = function(langConfig) {
         formElements.successMsg = document.querySelector('.sent-message');
         formElements.errorMsg = document.querySelector('.error-message');
         formElements.selectedDatesList = document.getElementById('selectedDatesList');
-        formElements.bookingDates = document.getElementById('bookingDates');
+        formElements.bookingDatesHidden = document.getElementById('bookingDatesHidden');
         formElements.clearDatesBtn = document.getElementById('clearDates');
         formElements.datePickerInput = document.getElementById('datePicker');
 
@@ -81,38 +81,60 @@ window.initUnifiedForm = function(langConfig) {
     }
 
     // ================== FLATPICKR ==================
+    // ================== FLATPICKR ==================
     function initFlatpickr() {
         if (!formElements.datePickerInput) return;
 
+        // Fonction de callback pour le changement de dates
+        function handleDateChange(selectedDates) {
+            updateSelectedDatesList(selectedDates);
+            validateDateField();
+        }
+
+        // Vérifier si Flatpickr est chargé
+        if (typeof flatpickr === 'undefined') {
+            console.warn('Flatpickr non chargé, utilisation du fallback');
+            fallbackDateInput();
+            return;
+        }
+
         try {
+            // Vérifier si la locale existe
+            let actualLocale = flatpickrLocale;
+            if (flatpickrLocale !== 'default' && (!flatpickr.l10ns || !flatpickr.l10ns[flatpickrLocale])) {
+                console.warn(`Locale ${flatpickrLocale} non trouvée, utilisation de 'default'`);
+                actualLocale = 'default';
+            }
+
             datePickerInstance = flatpickr("#datePicker", {
                 mode: "multiple",
                 dateFormat: "d/m/Y",
-                locale: flatpickrLocale,
+                locale: actualLocale,
                 minDate: "today",
-                onChange: function(selectedDates) {
-                    updateSelectedDatesList(selectedDates);
-                    validateDateField();
-                }
+                onChange: handleDateChange
             });
         } catch (error) {
             console.error('Flatpickr initialization failed:', error);
-            // Fallback to native date input if flatpickr fails
-            if (formElements.datePickerInput) {
-                formElements.datePickerInput.type = 'date';
-                formElements.datePickerInput.addEventListener('change', function() {
-                    validateDateField();
-                });
-            }
+            fallbackDateInput();
+        }
+    }
+
+    function fallbackDateInput() {
+        if (formElements.datePickerInput) {
+            // Simple message d'erreur
+            formElements.datePickerInput.type = 'text';
+            formElements.datePickerInput.readOnly = true;
+            formElements.datePickerInput.placeholder = "Sélection de dates temporairement indisponible";
+            formElements.datePickerInput.style.color = '#999';
         }
     }
 
     function updateSelectedDatesList(selectedDates) {
-        if (!formElements.selectedDatesList || !formElements.bookingDates) return;
+        if (!formElements.selectedDatesList || !formElements.bookingDatesHidden) return;
 
         if (selectedDates.length === 0) {
             formElements.selectedDatesList.innerHTML = `<span class="no-dates">${text.validation.noDates}</span>`;
-            formElements.bookingDates.value = '';
+            formElements.bookingDatesHidden.value = '';
             return;
         }
 
@@ -131,7 +153,7 @@ window.initUnifiedForm = function(langConfig) {
             `<span class="date-badge">${date}</span>`
         ).join('');
 
-        formElements.bookingDates.value = selectedDates.map(date =>
+        formElements.bookingDatesHidden.value = selectedDates.map(date =>
             date.toISOString().split('T')[0]
         ).join(',');
     }
@@ -234,16 +256,26 @@ window.initUnifiedForm = function(langConfig) {
         });
     }
 
+    // Ligne 302-316, REMPLACEZ par :
     function getRequiredSuffix(fieldName) {
-        if (lang === 'fr') {
-            // Check if the field is feminine based on its label
-            const label = getFieldLabel(fieldName).toLowerCase();
-            if (label.endsWith('e')) {
-                return text.validation.required.feminine;
-            }
-            return text.validation.required.masculine;
+        // Si text.validation.required est une chaîne, retournez-la directement
+        if (typeof text.validation.required === 'string') {
+            return text.validation.required;
         }
-        return text.validation.required;
+
+        // Si c'est un objet avec masculine/feminine (ancienne version)
+        if (lang === 'fr' && text.validation.required && typeof text.validation.required === 'object') {
+            // Simple logique de genre
+            const feminineFields = ['position', 'hotel_address', 'city', 'department', 'message'];
+            const isFeminine = feminineFields.includes(fieldName);
+
+            return isFeminine ?
+                (text.validation.required.feminine || ' est requise') :
+                (text.validation.required.masculine || ' est requis');
+        }
+
+        // Fallback par défaut
+        return ' est requis';
     }
 
     function getFieldLabel(fieldName) {
@@ -317,7 +349,7 @@ window.initUnifiedForm = function(langConfig) {
 
     function validateDateField() {
         const fieldName = 'bookingDates';
-        const field = formElements.bookingDates;
+        const field = formElements.bookingDatesHidden;
         if (!field) return true;
 
         const value = field.value.trim();
@@ -478,7 +510,7 @@ window.initUnifiedForm = function(langConfig) {
         const message = formData.get('message');
 
         // 2. Date processing
-        const bookingDatesValue = formElements.bookingDates ? formElements.bookingDates.value : '';
+        const bookingDatesValue = formElements.bookingDatesHidden ? formElements.bookingDatesHidden.value : '';
         let bookingDatesSimple = '';
         let bookingDatesDetailed = '';
 
@@ -489,7 +521,6 @@ window.initUnifiedForm = function(langConfig) {
                 return `${day}/${month}/${year}`;
             }).join(', ');
 
-            // Detailed format (e.g., lundi 1 décembre 2025)
             bookingDatesDetailed = bookingDatesValue.split(',').map(dateStr => {
                 const [year, month, day] = dateStr.split('-');
                 const date = new Date(year, month - 1, day);
@@ -521,7 +552,7 @@ window.initUnifiedForm = function(langConfig) {
             department: department,
             serviceType: serviceTypeFrench, // Always French for the template
             pms: pms || 'Non spécifié',
-            bookingDates: bookingDatesSimple,
+            bookingDatesHidden: bookingDatesSimple,
             bookingDatesArray: bookingDatesDetailed,
             shiftStart: shiftStartFrench,
             shiftEnd: shiftEndFrench,
@@ -643,8 +674,7 @@ window.initUnifiedForm = function(langConfig) {
     };
 
     function redirectToCalendly() {
-        const calendlyUrl = 'https://calendly.com/myshifters-extras/30min';
-        window.location.href = calendlyUrl;
+        window.location.href = 'https://calendly.com/myshifters-extras/30min';
     }
 
     // ================== START APPLICATION ==================
@@ -673,3 +703,5 @@ window.convert24hToFrench = function(time24h) {
     const [hours, minutes] = time24h.split(':');
     return `${hours}h${minutes === '00' ? '00' : minutes}`;
 };
+
+

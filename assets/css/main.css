@@ -103,14 +103,8 @@
   margin-bottom: 0.875rem;
   font-size: 0.9rem;
   font-family: 'Montserrat', sans-serif;
-  /* SUPPRIMÉ : display: flex et gap: 8px */
 }
 
-/* SUPPRIMER le pseudo-élément cookie */
-/* #calendlyModal .cookie-details h6::before {
-  content: '🍪';
-  font-size: 1rem;
-} */
 
 #calendlyModal .cookie-details ul {
   color: var(--text-secondary, #666666);
@@ -212,11 +206,7 @@ a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
+h1, h2, h3, h4, h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
@@ -1924,6 +1914,32 @@ section,
   .privacy p,
   .privacy ul {
     page-break-inside: avoid;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navmenu .language-selector .dropdown-menu {
+    position: static !important;
+    display: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding-left: 20px;
+  }
+
+  .navmenu .language-selector .dropdown-menu.show {
+    display: block;
+  }
+
+  .navmenu .language-selector .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
   }
 }
 

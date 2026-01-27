@@ -44,24 +44,33 @@
 
         <!-- French Language Indicator (non-clickable) -->
         <!-- Language Dropdown -->
-        <li class="nav-item dropdown language-selector">
-          <a class="dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="assets/img/drapeau-fr.webp" alt="Français" class="flag-icon" width="20" height="15"> FR
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-            <li>
-              <a class="dropdown-item" href="#">
-                <img src="assets/img/drapeau-fr.webp" alt="Français" class="flag-icon" width="20" height="15"> FR
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href=en/index.html>
-                <img src="assets/img/drapeau-uk.webp" alt="English" class="flag-icon" width="20" height="15"> EN
-              </a>
-            </li>
-          </ul>
-        </li>
+        <!-- Sélecteur de langue optimisé pour Mobile et Desktop -->
+        <li class="nav-item language-selector-wrapper">
+          <!-- Version Desktop (Dropdown) -->
+          <div class="dropdown d-none d-xl-block">
+            <button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="assets/img/drapeau-fr.webp" alt="Français" class="flag-icon me-1" width="20" height="15">
+              <span>FR</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+              <li><a class="dropdown-item d-flex align-items-center" href="#"><img src="assets/img/drapeau-fr.webp" alt="Français" class="flag-icon me-2" width="20" height="15"> Français</a></li>
+              <li><a class="dropdown-item d-flex align-items-center" href="en/index.html"><img src="assets/img/drapeau-uk.webp" alt="English" class="flag-icon me-2" width="20" height="15"> English</a></li>
+            </ul>
+          </div>
 
+          <!-- Version Mobile (Liens directs) -->
+          <div class="mobile-language-selector d-xl-none d-flex justify-content-center gap-3 py-2">
+            <a href="#" class="nav-link p-0 active">
+              <img src="assets/img/drapeau-fr.webp" alt="Français" width="25" height="18">
+              <span class="ms-1">FR</span>
+            </a>
+            <div class="vr"></div>
+            <a href="en/index.html" class="nav-link p-0">
+              <img src="assets/img/drapeau-uk.webp" alt="English" width="25" height="18">
+              <span class="ms-1">EN</span>
+            </a>
+          </div>
+        </li>
         <!-- Theme Toggle Button -->
         <li class="theme-toggle-container">
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
@@ -452,11 +461,11 @@
             <!-- FORMULAIRE UNIQUE EMAILJS -->
             <form class="php-email-form" id="unifiedForm" action="#">
 
-              <!-- Honeypot anti-spam (do not remove) -->
-              <!-- Honeypot field - should be left empty by humans -->
+              <!-- Honeypot anti-spam -->
+
               <div class="visually-hidden" aria-hidden="true">
-                <label for="website">Leave this field empty</label>
-                <input type="text" id="website" name="company_website" tabindex="-1" autocomplete="nope">
+                <label for="company_website">Ne pas remplir ce champ</label>
+                <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
               </div>
 
               <div class="row">
@@ -562,7 +571,7 @@
 
                 <!-- Sélection de dates multiples -->
                 <div class="form-group">
-                  <label for="bookingDates">Dates souhaitées *</label>
+                  <label for="datePicker">Dates souhaitées *</label>
                   <div class="input-group">
                     <input type="text" id="datePicker" class="form-control" placeholder="Cliquez pour sélectionner les dates" readonly>
                     <button type="button" class="btn btn-outline-secondary" id="clearDates">
@@ -575,7 +584,7 @@
                       <span class="no-dates">Aucune date sélectionnée</span>
                     </div>
                   </div>
-                  <input type="hidden" name="bookingDates" id="bookingDates">
+                  <input type="hidden" name="bookingDates" id="bookingDatesHidden">
                   <div class="field-error" style="color: #dc3545; font-size: 0.85em; display: none;"></div>
                 </div>
 
@@ -746,12 +755,16 @@
   </section>
 
 
-  <!-- Ajoutez ces scripts juste avant la fermeture de </body> -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
-  <!-- Script EmailJS uniquement -->
+  <!-- D'ABORD les dépendances -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+  <!-- Ajoutez la locale française -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/fr.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+
+  <!-- ENSUITE vos fichiers -->
   <script src="env.js"></script>
+  <script src="assets/js/form-core.js"></script>
   <script src="fr/script.js"></script>
 
   <!-- /Contact Section -->

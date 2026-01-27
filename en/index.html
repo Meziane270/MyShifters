@@ -42,27 +42,32 @@
                 <li><a href="#why-us">Why Choose Us</a></li>
                 <li><a href="#contact">Contact</a></li>
 
-                <!-- Language Dropdown -->
-                <li class="nav-item dropdown language-selector">
-                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                        <img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon" width="20" height="15">
-                        <span class="d-none d-md-inline">EN</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                        <li>
-                            <a class="dropdown-item" href="../index.html" lang="fr" hreflang="fr">
-                                <img src="../assets/img/drapeau-fr.webp" alt="Français" class="flag-icon me-2" width="20" height="15">
-                                Français
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="index.html" lang="en" hreflang="en">
-                                <img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon me-2" width="20" height="15">
-                                English
-                            </a>
-                        </li>
-                    </ul>
+                <!-- Language Selector optimized for Mobile and Desktop (same structure as French) -->
+                <li class="nav-item language-selector-wrapper">
+                    <!-- Desktop Version (Dropdown) -->
+                    <div class="dropdown d-none d-xl-block">
+                        <button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon me-1" width="20" height="15">
+                            <span>EN</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item d-flex align-items-center" href="../index.html"><img src="../assets/img/drapeau-fr.webp" alt="Français" class="flag-icon me-2" width="20" height="15"> Français</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center" href="index.html"><img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon me-2" width="20" height="15"> English</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobile Version (Direct links) -->
+                    <div class="mobile-language-selector d-xl-none d-flex justify-content-center gap-3 py-2">
+                        <a href="../index.html" class="nav-link p-0">
+                            <img src="../assets/img/drapeau-fr.webp" alt="Français" width="25" height="18">
+                            <span class="ms-1">FR</span>
+                        </a>
+                        <div class="vr"></div>
+                        <a href="index.html" class="nav-link p-0 active">
+                            <img src="../assets/img/drapeau-uk.webp" alt="English" width="25" height="18">
+                            <span class="ms-1">EN</span>
+                        </a>
+                    </div>
                 </li>
 
                 <!-- Theme Toggle Button -->
@@ -252,6 +257,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Food & Beverage -->
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
                     <div class="service-item">
                         <div class="service-header">
@@ -437,6 +443,7 @@
         </div>
 
         <div class="container">
+            <!-- OPTIMIZED: Using col-lg-8 for a "medium-large" width (approx 66%) and justify-content-center to center it -->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="form-wrapper">
@@ -448,15 +455,11 @@
                         <!-- UNIFIED EMAILJS FORM -->
                         <form class="php-email-form" id="unifiedForm" action="#">
 
-                            <!-- Honeypot anti-spam (do not remove) -->
-                            <input
-                                    type="text"
-                                    name="company_website"
-                                    tabindex="-1"
-                                    autocomplete="off"
-                                    aria-hidden="true"
-                                    style="position:absolute; left:-9999px;"
-                            >
+                            <!-- Honeypot anti-spam -->
+                            <div class="visually-hidden" aria-hidden="true">
+                                <label for="company_website">Do not fill this field</label>
+                                <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+                            </div>
 
                             <div class="row">
                                 <!-- Left Column - Contact Information -->
@@ -561,7 +564,7 @@
 
                                 <!-- Multiple Date Selection -->
                                 <div class="form-group">
-                                    <label for="bookingDates">Requested Dates *</label>
+                                    <label for="datePicker">Requested Dates *</label>
                                     <div class="input-group">
                                         <input type="text" id="datePicker" class="form-control" placeholder="Click to select dates" readonly>
                                         <button type="button" class="btn btn-outline-secondary" id="clearDates">
@@ -574,74 +577,25 @@
                                             <span class="no-dates">No dates selected</span>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="bookingDates" id="bookingDates">
+                                    <input type="hidden" name="bookingDates" id="bookingDatesHidden">
                                     <div class="field-error" style="color: #dc3545; font-size: 0.85em; display: none;"></div>
                                 </div>
 
-                                <!-- Shift Selection - Simplified version -->
+                                <!-- Shift Selection -->
                                 <div class="row mt-3">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="shiftStart">Start Time *</label>
-                                            <div class="d-flex align-items-start gap-2">
-                                                <div class="flex-grow-1">
-                                                    <select name="shiftStart" id="shiftStart" class="form-control" required>
-                                                        <option value="">-- Select time --</option>
-                                                        <option value="01:00">1:00</option>
-                                                        <option value="01:15">1:15</option>
-                                                        <option value="01:30">1:30</option>
-                                                        <option value="01:45">1:45</option>
-                                                        <option value="02:00">2:00</option>
-                                                        <option value="02:15">2:15</option>
-                                                        <option value="02:30">2:30</option>
-                                                        <option value="02:45">2:45</option>
-                                                        <option value="03:00">3:00</option>
-                                                        <option value="03:15">3:15</option>
-                                                        <option value="03:30">3:30</option>
-                                                        <option value="03:45">3:45</option>
-                                                        <option value="04:00">4:00</option>
-                                                        <option value="04:15">4:15</option>
-                                                        <option value="04:30">4:30</option>
-                                                        <option value="04:45">4:45</option>
-                                                        <option value="05:00">5:00</option>
-                                                        <option value="05:15">5:15</option>
-                                                        <option value="05:30">5:30</option>
-                                                        <option value="05:45">5:45</option>
-                                                        <option value="06:00">6:00</option>
-                                                        <option value="06:15">6:15</option>
-                                                        <option value="06:30">6:30</option>
-                                                        <option value="06:45">6:45</option>
-                                                        <option value="07:00" selected>7:00</option>
-                                                        <option value="07:15">7:15</option>
-                                                        <option value="07:30">7:30</option>
-                                                        <option value="07:45">7:45</option>
-                                                        <option value="08:00">8:00</option>
-                                                        <option value="08:15">8:15</option>
-                                                        <option value="08:30">8:30</option>
-                                                        <option value="08:45">8:45</option>
-                                                        <option value="09:00">9:00</option>
-                                                        <option value="09:15">9:15</option>
-                                                        <option value="09:30">9:30</option>
-                                                        <option value="09:45">9:45</option>
-                                                        <option value="10:00">10:00</option>
-                                                        <option value="10:15">10:15</option>
-                                                        <option value="10:30">10:30</option>
-                                                        <option value="10:45">10:45</option>
-                                                        <option value="11:00">11:00</option>
-                                                        <option value="11:15">11:15</option>
-                                                        <option value="11:30">11:30</option>
-                                                        <option value="11:45">11:45</option>
-                                                        <option value="12:00">12:00</option>
-                                                    </select>
-                                                </div>
-                                                <div class="flex-shrink-0">
-                                                    <div class="btn-group" role="group" style="min-width: 80px;">
-                                                        <input type="radio" class="btn-check" name="shiftStartAmPm" id="shiftStartAM" value="AM" checked>
-                                                        <label class="btn btn-outline-primary" for="shiftStartAM">AM</label>
-                                                        <input type="radio" class="btn-check" name="shiftStartAmPm" id="shiftStartPM" value="PM">
-                                                        <label class="btn btn-outline-primary" for="shiftStartPM">PM</label>
-                                                    </div>
-                                                </div>
+                                            <select name="shiftStart" id="shiftStart" class="form-control" required>
+                                                <option value="">-- Start time --</option>
+                                                <!-- Les options seront générées dynamiquement par JavaScript -->
+                                            </select>
+                                            <!-- Boutons radio AM/PM -->
+                                            <div class="btn-group mt-2" role="group">
+                                                <input type="radio" class="btn-check" name="shiftStartAmPm" id="shiftStartAM" value="AM" checked>
+                                                <label class="btn btn-outline-primary" for="shiftStartAM">AM</label>
+                                                <input type="radio" class="btn-check" name="shiftStartAmPm" id="shiftStartPM" value="PM">
+                                                <label class="btn btn-outline-primary" for="shiftStartPM">PM</label>
                                             </div>
                                             <div class="field-error" style="color: #dc3545; font-size: 0.85em; display: none;"></div>
                                         </div>
@@ -649,65 +603,16 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="shiftEnd">End Time *</label>
-                                            <div class="d-flex align-items-start gap-2">
-                                                <div class="flex-grow-1">
-                                                    <select name="shiftEnd" id="shiftEnd" class="form-control" required>
-                                                        <option value="">-- Select time --</option>
-                                                        <option value="01:00">1:00</option>
-                                                        <option value="01:15">1:15</option>
-                                                        <option value="01:30">1:30</option>
-                                                        <option value="01:45">1:45</option>
-                                                        <option value="02:00">2:00</option>
-                                                        <option value="02:15">2:15</option>
-                                                        <option value="02:30">2:30</option>
-                                                        <option value="02:45">2:45</option>
-                                                        <option value="03:00">3:00</option>
-                                                        <option value="03:15">3:15</option>
-                                                        <option value="03:30">3:30</option>
-                                                        <option value="03:45">3:45</option>
-                                                        <option value="04:00">4:00</option>
-                                                        <option value="04:15">4:15</option>
-                                                        <option value="04:30">4:30</option>
-                                                        <option value="04:45">4:45</option>
-                                                        <option value="05:00">5:00</option>
-                                                        <option value="05:15">5:15</option>
-                                                        <option value="05:30">5:30</option>
-                                                        <option value="05:45">5:45</option>
-                                                        <option value="06:00">6:00</option>
-                                                        <option value="06:15">6:15</option>
-                                                        <option value="06:30">6:30</option>
-                                                        <option value="06:45">6:45</option>
-                                                        <option value="07:00" selected>7:00</option>
-                                                        <option value="07:15">7:15</option>
-                                                        <option value="07:30">7:30</option>
-                                                        <option value="07:45">7:45</option>
-                                                        <option value="08:00">8:00</option>
-                                                        <option value="08:15">8:15</option>
-                                                        <option value="08:30">8:30</option>
-                                                        <option value="08:45">8:45</option>
-                                                        <option value="09:00">9:00</option>
-                                                        <option value="09:15">9:15</option>
-                                                        <option value="09:30">9:30</option>
-                                                        <option value="09:45">9:45</option>
-                                                        <option value="10:00">10:00</option>
-                                                        <option value="10:15">10:15</option>
-                                                        <option value="10:30">10:30</option>
-                                                        <option value="10:45">10:45</option>
-                                                        <option value="11:00">11:00</option>
-                                                        <option value="11:15">11:15</option>
-                                                        <option value="11:30">11:30</option>
-                                                        <option value="11:45">11:45</option>
-                                                        <option value="12:00">12:00</option>
-                                                    </select>
-                                                </div>
-                                                <div class="flex-shrink-0">
-                                                    <div class="btn-group" role="group" style="min-width: 80px;">
-                                                        <input type="radio" class="btn-check" name="shiftEndAmPm" id="shiftEndAM" value="AM">
-                                                        <label class="btn btn-outline-primary" for="shiftEndAM">AM</label>
-                                                        <input type="radio" class="btn-check" name="shiftEndAmPm" id="shiftEndPM" value="PM" checked>
-                                                        <label class="btn btn-outline-primary" for="shiftEndPM">PM</label>
-                                                    </div>
-                                                </div>
+                                            <select name="shiftEnd" id="shiftEnd" class="form-control" required>
+                                                <option value="">-- End time --</option>
+                                                <!-- Les options seront générées dynamiquement par JavaScript -->
+                                            </select>
+                                            <!-- Boutons radio AM/PM -->
+                                            <div class="btn-group mt-2" role="group">
+                                                <input type="radio" class="btn-check" name="shiftEndAmPm" id="shiftEndAM" value="AM">
+                                                <label class="btn btn-outline-primary" for="shiftEndAM">AM</label>
+                                                <input type="radio" class="btn-check" name="shiftEndAmPm" id="shiftEndPM" value="PM" checked>
+                                                <label class="btn btn-outline-primary" for="shiftEndPM">PM</label>
                                             </div>
                                             <div class="field-error" style="color: #dc3545; font-size: 0.85em; display: none;"></div>
                                         </div>
@@ -738,7 +643,6 @@
                                 </div>
                             </div>
                         </form>
-
 
                     </div>
                 </div>
@@ -823,7 +727,6 @@
                         </div>
                     </div>
 
-
                     <!-- Contact Channels -->
                     <div class="channel-card mb-4">
                         <div class="channel-icon">
@@ -846,7 +749,7 @@
                             <h5>Phone</h5>
                             <p>+33 7 49 06 03 05</p>
                             <div class="meta-line">
-                                <span class="channel-meta">Available anytime for emergencies</span>
+                                <span class="channel-meta">Available 7 days for emergencies</span>
                             </div>
                         </div>
                     </div>
@@ -858,13 +761,17 @@
 
     </section>
 
-
-    <!-- Add these scripts just before closing </body> -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
-    <!-- EmailJS Script only -->
+    <!-- IMPORTANT: Same script order as French version -->
+    <!-- Dependencies first -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+    <!-- Add English locale -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/default.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+
+    <!-- Then your files -->
     <script src="../env.js"></script>
+    <script src="../assets/js/form-core.js"></script>
     <script src="script.js"></script>
 
     <!-- /Contact Section -->
@@ -916,16 +823,17 @@
                 </div>
             </div>
         </div>
-        <div class="container copyright text-center mt-4">
-            <p>© <span id="currentYear">2026</span> <strong>MyShifters.</strong> All rights reserved.</p>
-            <div class="legal-links mt-2 d-inline-flex flex-wrap justify-content-center gap-3">
-                <a href="mentions.html" class="me-3">Legal Notice</a>
-                <a href="privacy.html" class="me-3">Privacy Policy</a>
-                <a href="cgu.html">Terms of Use</a>
-                <a href="cgs.html">Terms of Service</a>
-            </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+        <p>© <span id="currentYear">2026</span> <strong>MyShifters.</strong> All rights reserved.</p>
+        <div class="legal-links mt-2 d-inline-flex flex-wrap justify-content-center gap-3">
+            <a href="mentions.html" class="me-3">Legal Notice</a>
+            <a href="privacy.html" class="me-3">Privacy Policy</a>
+            <a href="cgu.html">Terms of Use</a>
+            <a href="cgs.html">Terms of Service</a>
         </div>
     </div>
+
 </footer>
 
 <!-- Calendly Warning Modal (New) -->
@@ -955,7 +863,7 @@
                 </div>
 
                 <div class="privacy-links mt-3">
-                    <a href="../fr/privacy.html" class="small me-3">Our Privacy Policy</a>
+                    <a href="privacy.html" class="small me-3">Our Privacy Policy</a>
                     <a href="https://calendly.com/privacy" target="_blank" class="small">Calendly's Policy</a>
                 </div>
             </div>

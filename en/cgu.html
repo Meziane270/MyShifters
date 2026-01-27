@@ -280,22 +280,31 @@
                 <li><a href="index.html#contact">Contact</a></li>
 
                 <!-- Language Dropdown -->
-                <li class="nav-item dropdown language-selector">
-                    <a class="dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon" width="20" height="15"> EN
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                        <li>
-                            <a class="dropdown-item" href="../fr/cgu.html">
-                                <img src="../assets/img/drapeau-fr.webp" alt="Français" class="flag-icon" width="20" height="15"> FR
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item active" href="#">
-                                <img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon" width="20" height="15"> EN
-                            </a>
-                        </li>
-                    </ul>
+                <li class="nav-item language-selector-wrapper">
+                    <!-- Desktop Version (Dropdown) -->
+                    <div class="dropdown d-none d-xl-block">
+                        <button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon me-1" width="20" height="15">
+                            <span>EN</span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item d-flex align-items-center" href="../fr/cgu.html"><img src="../assets/img/drapeau-fr.webp" alt="Français" class="flag-icon me-2" width="20" height="15"> Français</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center" href="#"><img src="../assets/img/drapeau-uk.webp" alt="English" class="flag-icon me-2" width="20" height="15"> English</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobile Version (Direct links) -->
+                    <div class="mobile-language-selector d-xl-none d-flex justify-content-center gap-3 py-2">
+                        <a href="../fr/cgu.html" class="nav-link p-0">
+                            <img src="../assets/img/drapeau-fr.webp" alt="Français" width="25" height="18">
+                            <span class="ms-1">FR</span>
+                        </a>
+                        <div class="vr"></div>
+                        <a href="#" class="nav-link p-0 active">
+                            <img src="../assets/img/drapeau-uk.webp" alt="English" width="25" height="18">
+                            <span class="ms-1">EN</span>
+                        </a>
+                    </div>
                 </li>
 
                 <!-- Theme Toggle Button -->
