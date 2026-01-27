@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>MyShifters - Conditions Générales de Services (CGS) </title>
+    <meta name="description" content="Conditions Générales de Services de MyShifters - Contrat professionnel pour les établissements hôteliers. Consultez nos conditions d'utilisation des services de mise en relation.">
+    <meta name="keywords" content="conditions générales de services, CGS, contrat professionnel, extras hôteliers, MyShifters, conditions d'utilisation, plateforme de mise en relation">
+
+    <!-- Favicons -->
+    <link href="../assets/img/Copy%20of%20SHIFTERS.svg" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <!-- Theme Toggle CSS -->
+    <link href="../assets/css/theme-toggle.css" rel="stylesheet">
+
+    <!-- CGS Page Specific CSS -->
+    <style>
+        /* ============================================
+           CGS PAGE SPECIFIC STYLES
+           ============================================ */
+
+        /* Header Styling - Compact */
+        .cgs-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cgs-header:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            color: var(--accent-color);
+            padding: 0.35rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+        }
+
+        .cgs-header h2 {
+            color: var(--heading-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: var(--heading-font);
+        }
+
+        .cgs-header p {
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Content Sections */
+        .cgs-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        }
+
+        .content-section h3 {
+            color: var(--heading-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            position: relative;
+            font-family: var(--heading-font);
+        }
+
+        .content-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .content-section p {
+            color: var(--default-color);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Important Note */
+        .important-note {
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .important-note p {
+            margin: 0;
+            color: var(--heading-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Definitions */
+        .definition-box {
+            background: color-mix(in srgb, var(--accent-color), transparent 95%);
+            border-left: 3px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .definition-box p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        .definition-term {
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        /* Lists */
+        .list-items {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin: 0.75rem 0;
+        }
+
+        .list-items li {
+            padding: 0.25rem 0;
+            position: relative;
+            color: var(--default-color);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .list-items li:before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Financial Schema */
+        .financial-schema {
+            background: color-mix(in srgb, var(--accent-color), transparent 92%);
+            border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .financial-schema ol {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .financial-schema li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Box */
+        .cgs-contact {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .contact-box {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-content h4 {
+            color: var(--heading-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: var(--heading-font);
+        }
+
+        .contact-content p {
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: color-mix(in srgb, var(--accent-color), transparent 20%);
+            color: var(--contrast-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cgs-page .main {
+                padding-top: 25px;
+            }
+
+            .cgs-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section {
+                padding: 1.25rem;
+            }
+
+            .contact-box {
+                padding: 1.25rem;
+            }
+
+            .cgs-contact {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cgs-page .main {
+                padding-top: 20px;
+            }
+
+            .cgs-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .content-section {
+                padding: 1rem;
+            }
+
+            .contact-box {
+                padding: 1rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="cgs-page">
+
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <img src="../assets/img/Copy%20of%20SHIFTERS.svg" alt="Logo My Shifters">
+            <h1 class="sitename">MyShifters</h1><span>.</span>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="../index.html#hero">Accueil</a></li>
+                <li><a href="../index.html#about">À propos</a></li>
+                <li><a href="../index.html#services">Nos Services</a></li>
+                <li><a href="../index.html#why-us">Nous Choisir</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+
+                <!-- Language Dropdown -->
+                <li class="nav-item dropdown language-selector">
+                    <a class="dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../assets/img/drapeau-fr.svg" alt="Français" class="flag-icon" width="20" height="15"> FR
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img src="../assets/img/drapeau-fr.svg" alt="Français" class="flag-icon" width="20" height="15"> FR
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="../en/cgs.html">
+                                <img src="../assets/img/drapeau-uk.svg" alt="English" class="flag-icon" width="20" height="15"> EN
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Theme Toggle Button -->
+                <li class="theme-toggle-container">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                        <i class="bi bi-sun-fill"></i>
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted" href="../index.html#contact">Demander un extra</a>
+    </div>
+</header>
+
+<main class="main">
+
+    <!-- Conditions Générales de Services Section -->
+    <section id="conditions-services" class="conditions-services section">
+
+        <div class="container" data-aos="fade-up">
+
+            <!-- Page Header -->
+            <div class="cgs-header text-center">
+                <span class="last-updated" lang="fr">Date d'entrée en vigueur : 27 janvier 2026</span>
+                <h2>Conditions Générales de Services (CGS)</h2>
+                <p>Contrat professionnel régissant l'utilisation des services de mise en relation MyShifters</p>
+            </div>
+
+            <!-- Content -->
+            <div class="cgs-content" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="important-note">
+                    <p><strong>AVERTISSEMENT IMPORTANT :</strong> Les présentes Conditions Générales de Services (CGS) constituent un contrat juridiquement contraignant entre l'Établissement Client et MYSHIFTERS. En acceptant ces CGS, vous reconnaissez avoir lu, compris et accepté l'intégralité de leurs dispositions. Il est recommandé de les imprimer et/ou de les conserver.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 1 - OBJET ET DÉFINITIONS</h3>
+
+                    <h4>1.1 Objet</h4>
+                    <p>Les présentes Conditions Générales de Services (ci-après les « CGS ») ont pour objet de définir les conditions dans lesquelles la société <strong>MYSHIFTERS</strong> (ci-après « la Plateforme ») met à disposition des Établissements Clients (ci-après « le Client ») un service de mise en relation avec des travailleurs indépendants immatriculés en qualité d'auto-entrepreneurs (ci-après « le(s) Prestataire(s) ») pour l'exécution de missions temporaires (ci-après « la Mission ») au sein de l'établissement du Client.</p>
+
+                    <div class="important-note">
+                        <p><strong>RÔLE DE MYSHIFTERS :</strong> MYSHIFTERS agit exclusivement en tant que <strong>plateforme de mise en relation technique et administrative</strong>. MYSHIFTERS n'est pas un employeur, n'exerce aucun lien de subordination à l'égard des Prestataires, et n'est pas partie au contrat d'exécution de la Mission qui s'établit directement entre le Client et le Prestataire. MYSHIFTERS intervient comme mandataire de paiement et organisateur de la mise en relation.</p>
+                    </div>
+
+                    <h4>1.2 Définitions</h4>
+                    <div class="definition-box">
+                        <p><span class="definition-term">« Plateforme »</span> : Désigne le service digital MYSHIFTERS, accessible par tout moyen électronique, permettant la mise en relation entre Clients et Prestataires.</p>
+                        <p><span class="definition-term">« Client »</span> : Tout établissement hôtelier, résidence touristique ou établissement de loisirs ayant souscrit aux présentes CGS pour commander des Missions.</p>
+                        <p><span class="definition-term">« Prestataire »</span> : Travailleur indépendant immatriculé en qualité d'auto-entrepreneur, ayant signé une Convention de Prestation Indépendante avec MYSHIFTERS, et inscrit sur la Plateforme pour exécuter des Missions.</p>
+                        <p><span class="definition-term">« Mission »</span> : Prestation de service temporaire et ponctuelle, définie par un poste (ex: réceptionniste, gouvernante), une date, des horaires et un lieu d'exécution précis, confiée par un Client à un Prestataire via la Plateforme.</p>
+                        <p><span class="definition-term">« Commission »</span> : Rémunération de la Plateforme, correspondant à un pourcentage du montant total de la Mission, prélevé sur le paiement effectué par le Client avant reversement au Prestataire.</p>
+                        <p><span class="definition-term">« Contrat de Mission »</span> : Accord commercial direct et ponctuel qui se forme entre le Client et le Prestataire dès l'acceptation par le Prestataire d'une Mission proposée via la Plateforme.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 2 - ACCEPTATION ET INSCRIPTION</h3>
+                    <p>2.1 L'accès au Service est réservé aux professionnels. Toute inscription sur la Plateforme vaut acceptation pleine et entière des présentes CGS.</p>
+                    <p>2.2 Le Client garantit l'exactitude et la sincérité des informations fournies lors de son inscription (raison sociale, SIRET, adresse, représentant légal).</p>
+                    <p>2.3 Le compte du Client est personnel et confidentiel. Le Client est responsable de toute utilisation faite de son compte.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 3 - PROCESSUS DE COMMANDE D'UNE MISSION</h3>
+                    <p>3.1 Le Client formule une demande de Mission via la Plateforme, par email, ou par téléphone, en précisant : le poste requis, la date, les horaires, le lieu, et toute compétence spécifique nécessaire.</p>
+                    <p>3.2 MYSHIFTERS recherche parmi ses Prestataires disponibles et qualifiés, et propose un ou plusieurs profils au Client.</p>
+                    <p>3.3 Le Client sélectionne le Prestataire proposé. Cette sélection constitue une offre de Mission.</p>
+                    <p>3.4 MYSHIFTERS transmet l'offre de Mission au Prestataire. La Mission est confirmée uniquement lorsque le Prestataire l'accepte explicitement.</p>
+                    <p>3.5 MYSHIFTERS notifie la confirmation de la Mission au Client, avec les coordonnées du Prestataire.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 4 - OBLIGATIONS DU CLIENT</h3>
+                    <p>4.1 Le Client s'engage à fournir au Prestataire un <strong>environnement de travail sécurisé</strong> et conforme à la réglementation en vigueur.</p>
+                    <p>4.2 Le Client doit accueillir le Prestataire, lui fournir les instructions et informations nécessaires à la bonne exécution de la Mission, ainsi que le matériel spécifique à l'établissement si nécessaire (ex: logiciel de réservation, badge).</p>
+                    <p>4.3 Le Client traitera le Prestataire avec respect et reconnaîtra son statut d'<strong>indépendant</strong>. Aucun lien de subordination ne doit être exercé.</p>
+                    <p>4.4 Le Client doit signaler à MYSHIFTERS, dans les plus brefs délais, tout problème survenant pendant l'exécution de la Mission.</p>
+                    <p>4.5 Le Client s'engage à ne pas entrer en relation directe avec un Prestataire rencontré via la Plateforme pour lui commander des Missions en dehors de la Plateforme, pendant une durée de <strong>12 mois</strong> suivant la dernière Mission effectuée via MYSHIFTERS (clause de non-détournement).</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 5 - TARIFS, FACTURATION ET PAIEMENT</h3>
+
+                    <h4>5.1 Tarifs</h4>
+                    <p>Les tarifs des Missions sont communiqués au Client avant validation. Ils varient selon le poste, la durée, le moment (week-end, jour férié) et le délai de la demande (urgence). Les tarifs sont indiqués en Euros, toutes taxes comprises (TTC).</p>
+
+                    <h4>5.2 Facturation et Paiement par le Client</h4>
+                    <p>5.2.1 MYSHIFTERS adresse au Client une <strong>facture</strong> pour le montant total de la Mission, dès confirmation de celle-ci.</p>
+                    <p>5.2.2 Le paiement de la facture est exigible à réception. Le délai de paiement est de <strong>30 jours fin de mois</strong> à compter de la date de facture.</p>
+                    <p>5.2.3 Le paiement s'effectue par virement bancaire sur le compte indiqué sur la facture.</p>
+                    <p>5.2.4 Tout retard de paiement entraîne de plein droit l'application de pénalités d'un montant égal à trois fois le taux d'intérêt légal, et une indemnité forfaitaire de 40€ pour frais de recouvrement.</p>
+
+                    <h4>5.3 Rétribution du Prestataire</h4>
+                    <p>5.3.1 MYSHIFTERS reverse au Prestataire le montant convenu pour la Mission, après prélèvement de sa Commission.</p>
+                    <p>5.3.2 <strong>Condition suspensive absolue :</strong> Le reversement n'intervient qu'après réception par MYSHIFTERS d'une <strong>facture régulière</strong> émise par le Prestataire au nom de MYSHIFTERS, correspondant précisément à la Mission exécutée.</p>
+                    <p>5.3.3 Le délai de reversement au Prestataire est de <strong>7 jours ouvrés</strong> après réception du paiement intégral du Client par MYSHIFTERS.</p>
+
+                    <div class="financial-schema">
+                        <p><strong>SCHEMA FINANCIER :</strong></p>
+                        <ol>
+                            <li>Client paye 100€ TTC à MYSHIFTERS pour une Mission.</li>
+                            <li>MYSHIFTERS prélève sa Commission (ex: 20%).</li>
+                            <li>MYSHIFTERS reçoit la facture de 80€ du Prestataire.</li>
+                            <li>MYSHIFTERS reverse 80€ au Prestataire.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 6 - RESPONSABILITÉS ET GARANTIES</h3>
+
+                    <h4>6.1 Rôle et Responsabilité Limitée de MYSHIFTERS</h4>
+                    <p>6.1.1 MYSHIFTERS met en œuvre ses meilleurs efforts pour proposer des Prestataires qualifiés, mais ne garantit pas les résultats de la Mission. La sélection finale du Prestataire appartient au Client.</p>
+                    <p>6.1.2 <strong>MYSHIFTERS N'EST EN AUCUN CAS RESPONSABLE</strong> de l'exécution de la Mission, qui relève de la relation directe entre le Client et le Prestataire. MYSHIFTERS décline toute responsabilité en cas de faute, négligence, dommage ou vol imputable au Prestataire ou au Client.</p>
+                    <p>6.1.3 MYSHIFTERS n'est pas responsable des annulations, retards ou absences d'un Prestataire, mais s'engage à tout mettre en œuvre pour trouver un remplaçant dans les meilleurs délais.</p>
+
+                    <h4>6.2 Responsabilité du Client</h4>
+                    <p>Le Client est seul responsable de la vérification des compétences du Prestataire pour la Mission, de son accueil et de son encadrement sur site. Le Client est responsable de la sécurité de ses biens, locaux et de son propre personnel.</p>
+
+                    <h4>6.3 Assurance</h4>
+                    <p>6.3.1 MYSHIFTERS est couverte par une assurance <strong>Responsabilité Civile Professionnelle</strong> pour son activité de mise en relation.</p>
+                    <p>6.3.2 Chaque Prestataire inscrit sur la Plateforme doit être titulaire d'une <strong>assurance RC Pro en cours de validité</strong> couvrant son activité. MYSHIFTERS vérifie cette assurance lors de l'inscription mais ne peut en garantir le maintien. Le Client peut en demander une attestation au Prestataire.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 7 - ANNULATION ET MODIFICATION</h3>
+                    <p>7.1 <strong>Annulation par le Client :</strong></p>
+                    <ul class="list-items">
+                        <li>Plus de 72h avant la Mission : Aucuns frais.</li>
+                        <li>Entre 72h et 24h avant la Mission : Facturation de 50% du montant de la Mission.</li>
+                        <li>Moins de 24h avant la Mission : Facturation de 100% du montant de la Mission.</li>
+                    </ul>
+                    <p>7.2 <strong>Annulation par le Prestataire :</strong> MYSHIFTERS s'engage à rechercher activement un Prestataire de remplacement. En cas d'impossibilité, la Mission est annulée sans frais pour le Client.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 8 - DONNÉES PERSONNELLES</h3>
+                    <p>Les données personnelles collectées sont traitées conformément à notre <a href="privacy.html">Politique de Confidentialité</a>. Elles sont utilisées pour la gestion des Missions, la facturation et la relation commerciale.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 9 - PROPRIÉTÉ INTELLECTUELLE</h3>
+                    <p>La Plateforme, son contenu, son savoir-faire et sa base de données sont la propriété exclusive de MYSHIFTERS. Le Client s'interdit toute reproduction ou utilisation non autorisée.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 10 - DURÉE, RÉSILIATION ET SUSPENSION</h3>
+                    <p>10.1 Les présentes CGS sont conclues pour une durée indéterminée à compter de leur acceptation.</p>
+                    <p>10.2 Chaque partie peut y mettre fin à tout moment, par notification écrite avec un préavis de <strong>30 jours</strong>.</p>
+                    <p>10.3 En cas de manquement grave d'une partie à ses obligations, l'autre partie peut résilier les présentes immédiatement, de plein droit.</p>
+                    <p>10.4 MYSHIFTERS se réserve le droit de suspendre immédiatement l'accès du Client à la Plateforme en cas de défaut de paiement ou de comportement contraire aux présentes CGS.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 11 - LITIGES ET DROIT APPLICABLE</h3>
+                    <p>11.1 Les présentes CGS sont régies par le droit français.</p>
+                    <p>11.2 En cas de litige, les parties s'engagent à rechercher une solution amiable avant toute action judiciaire.</p>
+                    <p>11.3 À défaut d'accord amiable, tout litige relèvera de la compétence exclusive des <strong>Tribunaux compétents du siège social de MYSHIFTERS</strong>, nonobstant la pluralité de défendeurs ou d'appel en garantie.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 12 - DISPOSITIONS DIVERSES</h3>
+                    <p>12.1 <strong>Modification :</strong> MYSHIFTERS se réserve le droit de modifier les présentes CGS. Les nouvelles versions seront notifiées par email et disponibles sur la Plateforme. Leur utilisation continue du Service vaut acceptation.</p>
+                    <p>12.2 <strong>Nullité partielle :</strong> Si une clause des présentes CGS était jugée invalide, les autres clauses resteraient pleinement en vigueur.</p>
+                    <p>12.3 <strong>Intégralité :</strong> Les présentes CGS constituent l'intégralité de l'accord entre les parties concernant l'objet des CGS.</p>
+                </div>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="cgs-contact" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h4>Pour accepter les présentes CGS</h4>
+                        <p>L'acceptation peut se faire par retour d'email signifiant "J'accepte les CGS", par signature électronique, ou par tout moyen manifestant un consentement clair.</p>
+                        <a href="mailto:myshifters-extras@outlook.com?subject=Acceptation%20des%20CGS%20MyShifters&body=Je%20soussign%C3%A9(e)%20[Pr%C3%A9nom%20Nom]%2C%20repr%C3%A9sentant%20de%20[RAISON%20SOCIALE]%2C%20accepte%20les%20Conditions%20G%C3%A9n%C3%A9rales%20de%20Services%20de%20MyShifters." class="contact-link">Accepter par email</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer id="footer" class="footer">
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="../index.html" class="logo d-flex align-items-center">
+                    <img src="../assets/img/Copy%20of%20SHIFTERS.svg" alt="Logo My Shifters" class="img-fluid">
+                    <span class="sitename">MyShifters</span>
+                </a>
+                <p>My Shifters accompagne les hôtels, résidences et établissements haut de gamme dans la gestion de leurs besoins en personnel extra.</p>
+                <div class="mt-4">
+                    <a class="btn-getstarted" href="../index.html#commande"><h4>Demander un extra</h4> </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Liens Utiles</h4>
+                <ul>
+                    <li><a href="../index.html#hero">Accueil</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="../index.html#services">Nos Services</a></li>
+                    <li><a href="../index.html#why-us">Nous choisir</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Documents Légaux</h4>
+                <ul>
+                    <li><a href="mentions.html">Mentions légales</a></li>
+                    <li><a href="privacy.html">Politique de confidentialité</a></li>
+                    <li><a href="cgu.html">CGU du site</a></li>
+                    <li><a href="cgs.html" class="active">CGS Professionnelles</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4>Contactez-nous</h4>
+                <p>Disponible 7j/7 pour vos besoins urgents</p>
+                <p class="mt-4"><strong>Téléphone:</strong> <span>+33 7 49 06 03 05</span></p>
+                <p><strong>Email:</strong> <span>myshifters-extras@outlook.com</span></p>
+                <div class="emergency-badge mt-3">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Urgence personnel ? Appelez-nous !</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+        <p>© <span id="currentYear">2026</span> <strong>MyShifters.</strong> Tous droits réservés.</p>
+        <div class="legal-links mt-2 d-inline-flex flex-wrap justify-content-center gap-3">
+            <a href="mentions.html">Mentions légales</a>
+            <a href="privacy.html">Politique de confidentialité</a>
+            <a href="cgu.html">Conditions générales d'utilisation</a>
+            <a href="cgs.html" class="active">Conditions générales de service</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Theme Toggle JS -->
+<script src="../theme-toggle.js"></script>
+
+<!-- Vendor JS Files -->
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/aos/aos.js"></script>
+<script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+<!-- Main JS File -->
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

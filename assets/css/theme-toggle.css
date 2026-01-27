@@ -1,0 +1,349 @@
+/* theme-toggle.css - Dark/Light mode styles for MyShifters */
+
+/* Light mode variables - override the dark defaults */
+:root {
+    /* Default dark theme variables (from your CSS) */
+    --background-color: #020c19;
+    --default-color: #fafdff;
+    --heading-color: #ffffff;
+    --accent-color: #208bf4;
+    --surface-color: #141e2b;
+    --contrast-color: #ffffff;
+    --nav-color: #d8e4f0;
+    --nav-hover-color: #ffffff;
+    --nav-mobile-background-color: #1b2634;
+    --nav-dropdown-background-color: #1b2634;
+    --nav-dropdown-color: #fafdff;
+    --nav-dropdown-hover-color: #208bf4;
+}
+
+.light-mode {
+    /* Light theme variables */
+    --background-color: #ffffff;
+    --default-color: #333333;
+    --heading-color: #000000;
+    --accent-color: #208bf4;
+    --surface-color: #f8f9fa;
+    --contrast-color: #ffffff;
+    --nav-color: #333333;
+    --nav-hover-color: #208bf4;
+    --nav-mobile-background-color: #ffffff;
+    --nav-dropdown-background-color: #ffffff;
+    --nav-dropdown-color: #333333;
+    --nav-dropdown-hover-color: #208bf4;
+}
+
+/* NAVBAR SPECIFIC STYLES */
+/* Dark mode navbar (default from your CSS) */
+.header {
+    --background-color: #0c1623;
+    --surface-color: #1b2430;
+    color: var(--default-color);
+    background-color: var(--background-color);
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+/* Light mode navbar */
+.light-mode .header {
+    --background-color: #ffffff;
+    --surface-color: #ffffff;
+    color: #333333;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Logo colors */
+.header .logo h1 {
+    color: var(--heading-color);
+}
+
+.light-mode .header .logo h1 {
+    color: #000000;
+}
+
+.header .logo span {
+    color: var(--accent-color);
+}
+
+/* Navigation links */
+.navmenu a {
+    color: var(--nav-color) !important;
+}
+
+.light-mode .navmenu a {
+    color: #333333 !important;
+}
+
+.navmenu a:hover,
+.navmenu .active {
+    color: var(--nav-hover-color) !important;
+}
+
+.light-mode .navmenu a:hover,
+.light-mode .navmenu .active {
+    color: #208bf4 !important;
+}
+
+/* Navbar bottom border on hover */
+.navmenu>ul>li>a:before {
+    background-color: var(--accent-color);
+}
+
+/* Mobile nav toggle */
+.mobile-nav-toggle {
+    color: var(--nav-color);
+}
+
+.light-mode .mobile-nav-toggle {
+    color: #333333;
+}
+
+/* Get Started button */
+.header .btn-getstarted {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+}
+
+.light-mode .header .btn-getstarted {
+    color: #ffffff;
+    background: #208bf4;
+}
+
+.header .btn-getstarted:hover {
+    color: var(--contrast-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.light-mode .header .btn-getstarted:hover {
+    color: #ffffff;
+    background: #0d6efd;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+    color: var(--default-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.theme-toggle .bi-sun-fill {
+    display: none;
+}
+
+.light-mode .theme-toggle .bi-moon-fill {
+    display: none;
+}
+
+.light-mode .theme-toggle .bi-sun-fill {
+    display: block;
+}
+
+/* Adjust navbar layout for the toggle */
+.navmenu ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navmenu ul li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+/* Special handling for .light-background and .dark-background classes */
+.light-mode .light-background {
+    --background-color: #f0f2f5;
+    --surface-color: #ffffff;
+}
+
+.light-mode .dark-background {
+    --background-color: #e9ecef;
+    --surface-color: #dee2e6;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1200px) {
+    .theme-toggle-container {
+        margin-left: 0;
+    }
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
+/* Ensure form controls have proper colors in light mode */
+.light-mode .form-control,
+.light-mode .form-select {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #dee2e6;
+}
+
+.light-mode .form-control:focus,
+.light-mode .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(32, 139, 244, 0.25);
+}
+
+/* Fix for footer in light mode */
+.light-mode .footer {
+    background-color: var(--surface-color);
+}
+
+.light-mode .footer h4,
+.light-mode .footer .sitename,
+.light-mode .footer p,
+.light-mode .footer a {
+    color: var(--default-color);
+}
+
+.light-mode .footer .social-links a {
+    background: color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--default-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.light-mode .footer .social-links a:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    border-color: var(--accent-color);
+}
+
+/* Fix for emergency badge in light mode */
+.light-mode .emergency-badge {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+/* Service cards in light mode */
+.light-mode .service-item,
+.light-mode .value-card,
+.light-mode .channel-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+}
+
+.light-mode .service-item:hover,
+.light-mode .value-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero section adjustments for light mode */
+.light-mode .hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.light-mode .hero .hero-content p {
+    color: #666666;
+}
+
+/* About section stats grid */
+.light-mode .about .stats-grid {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+}
+
+/* Contact section */
+.light-mode .contact {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Form sections */
+.light-mode .form-wrapper {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+}
+
+/* Selected dates in forms */
+.light-mode .selected-dates-list {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+}
+
+.light-mode .date-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+/* Additional general light mode styles */
+.light-mode body {
+    color: #333333;
+    background-color: #ffffff;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode h5,
+.light-mode h6 {
+    color: #000000;
+}
+
+.light-mode .section {
+    background-color: var(--surface-color);
+}
+
+/* Fix for stat numbers in value cards */
+.value-card .stat-number {
+    color: var(--accent-color) !important;
+}
+
+/* Ensure stat numbers in featured cards also stay blue */
+.value-card.featured .stat-number {
+    color: var(--accent-color) !important;
+}
+
+/* If there's any other specific styling that needs to be overridden */
+.light-mode .value-card .stat-number,
+.light-mode .value-card.featured .stat-number {
+    color: #208bf4 !important;
+}
+
+
+.light-mode p,
+.light-mode .lead {
+    color: #666666;
+}
+
+/* Fix for dropdown in light mode */
+.light-mode .dropdown-content {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+.light-mode .dropdown-content li a {
+    color: #333333;
+}
+
+.light-mode .dropdown-content li a:hover {
+    background-color: #f1f1f1;
+}

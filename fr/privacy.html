@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>MyShifters - Politique de Confidentialité</title>
+  <meta name="description" content="Politique de Confidentialité de MyShifters - Personnel hôtelier extra. Consultez notre politique de protection des données personnelles.">
+  <meta name="keywords" content="politique de confidentialité, RGPD, données personnelles, protection des données, MyShifters, confidentialité">
+
+  <!-- Favicons -->
+  <link href="../assets/img/Copy%20of%20SHIFTERS.svg" rel="icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <!-- Theme Toggle CSS -->
+  <link href="../assets/css/theme-toggle.css" rel="stylesheet">
+
+  <!-- Privacy Page Specific CSS -->
+  <style>
+    /* ============================================
+       PRIVACY PAGE SPECIFIC STYLES
+       Même style que la page CGU
+       ============================================ */
+
+    /* Header Styling - Compact */
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .privacy-header:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    .last-updated {
+      display: inline-block;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      color: var(--accent-color);
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+    }
+
+    .privacy-header h1 {
+      color: var(--heading-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-family: var(--heading-font);
+    }
+
+    .privacy-header .intro-text {
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      font-size: 0.95rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Content Sections */
+    .privacy-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      background: var(--surface-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    }
+
+    .content-section h2 {
+      color: var(--heading-color);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      position: relative;
+      font-family: var(--heading-font);
+    }
+
+    .content-section h2:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    .content-section h3 {
+      color: var(--heading-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem 0;
+      font-family: var(--heading-font);
+    }
+
+    .content-section p {
+      color: var(--default-color);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .content-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-section strong {
+      color: var(--heading-color);
+      font-weight: 600;
+    }
+
+    /* Lists */
+    .content-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.75rem 0;
+    }
+
+    .content-section li {
+      padding: 0.25rem 0 0.25rem 1.5rem;
+      position: relative;
+      color: var(--default-color);
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+
+    .content-section li:before {
+      content: '•';
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 1.1em;
+      position: absolute;
+      left: 0.5rem;
+    }
+
+    /* Contact Section - COMME LA PAGE CGU */
+    .privacy-contact {
+      max-width: 600px; /* LIMITE LA LARGEUR MAXIMALE */
+      margin: 2rem auto 0;
+      background: var(--surface-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      text-align: center;
+    }
+
+    .privacy-contact .contact-icon {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .privacy-contact h2 {
+      color: var(--heading-color);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      position: relative;
+      font-family: var(--heading-font);
+    }
+
+    .privacy-contact h2:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    .privacy-contact p {
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+
+    .privacy-contact .contact-link {
+      display: inline-block;
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--accent-color);
+      transition: all 0.2s ease;
+    }
+
+    .privacy-contact .contact-link:hover {
+      background: color-mix(in srgb, var(--accent-color), black 10%);
+      border-color: color-mix(in srgb, var(--accent-color), black 10%);
+      transform: translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .privacy-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .content-section {
+        padding: 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .privacy-contact {
+        max-width: 100%; /* Pleine largeur sur mobile */
+        padding: 1.25rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .privacy-header h1 {
+        font-size: 1.3rem;
+      }
+
+      .content-section {
+        padding: 0.875rem;
+      }
+
+      .content-section h2 {
+        font-size: 1.1rem;
+      }
+
+      .content-section h3 {
+        font-size: 1rem;
+      }
+
+      .privacy-contact {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="privacy-page">
+
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container position-relative d-flex align-items-center justify-content-between">
+    <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <img src="../assets/img/Copy%20of%20SHIFTERS.svg" alt="Logo My Shifters">
+      <h1 class="sitename">MyShifters</h1><span>.</span>
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="../index.html#hero">Accueil</a></li>
+        <li><a href="../index.html#about">À propos</a></li>
+        <li><a href="../index.html#services">Nos Services</a></li>
+        <li><a href="../index.html#why-us">Nous Choisir</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+
+        <!-- Language Dropdown -->
+        <li class="nav-item dropdown language-selector">
+          <a class="dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../assets/img/drapeau-fr.svg" alt="Français" class="flag-icon" width="20" height="15"> FR
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li>
+              <a class="dropdown-item" href="#">
+                <img src="../assets/img/drapeau-fr.svg" alt="Français" class="flag-icon" width="20" height="15"> FR
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href=../en/privacy.html>
+                <img src="../assets/img/drapeau-uk.svg" alt="English" class="flag-icon" width="20" height="15"> EN
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- Theme Toggle Button -->
+        <li class="theme-toggle-container">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <i class="bi bi-sun-fill"></i>
+            <i class="bi bi-moon-fill"></i>
+          </button>
+        </li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+    <a class="btn-getstarted" href="../index.html#contact">Demander un extra</a>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Privacy Section -->
+  <section id="privacy" class="privacy section">
+
+    <div class="container" data-aos="fade-up">
+
+      <!-- Header -->
+      <div class="privacy-header text-center">
+        <div class="last-updated" lang="fr">Date d'entrée en vigueur : 27 janvier 2025</div>
+        <h1>Politique de confidentialité</h1>
+        <p class="intro-text">
+          La présente politique de confidentialité décrit la manière dont MyShifters collecte,
+          utilise et protège les données personnelles des utilisateurs du site.
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="privacy-content" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="content-section">
+          <h2>1. Responsable du traitement</h2>
+          <p>
+            Le responsable du traitement des données est :
+          </p>
+          <ul>
+            <li><strong>Nom commercial :</strong> MyShifters</li>
+            <li><strong>Responsable :</strong> Meziane Oulmas</li>
+            <li><strong>Email :</strong> myshifters-extras@outlook.com</li>
+            <li><strong>Site web :</strong> https://www.myshifters.eu</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>2. Données collectées</h2>
+          <p>
+            MyShifters collecte uniquement les données strictement nécessaires à son activité.
+          </p>
+
+          <h3>2.1 Données fournies volontairement</h3>
+          <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Numéro de téléphone (si fourni)</li>
+            <li>Message via formulaire de contact</li>
+            <li>Informations transmises lors de la prise de rendez-vous (Calendly)</li>
+          </ul>
+
+          <h3>2.2 Données collectées automatiquement</h3>
+          <ul>
+            <li>Adresse IP</li>
+            <li>Type de navigateur</li>
+            <li>Données de navigation anonymisées</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>3. Finalités du traitement</h2>
+          <p>
+            Les données personnelles sont utilisées pour :
+          </p>
+          <ul>
+            <li>Répondre aux demandes de contact</li>
+            <li>Organiser des rendez-vous professionnels</li>
+            <li>Assurer le suivi commercial</li>
+            <li>Améliorer l'expérience utilisateur</li>
+            <li>Respecter les obligations légales</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>4. Base légale</h2>
+          <p>
+            Les traitements de données reposent sur :
+          </p>
+          <ul>
+            <li>Le consentement explicite de l'utilisateur</li>
+            <li>L'exécution de mesures précontractuelles</li>
+            <li>L'intérêt légitime de MyShifters</li>
+          </ul>
+        </div>
+
+        <div class="content-section">
+          <h2>5. Outils et services tiers</h2>
+          <p>
+            MyShifters utilise des services tiers pouvant collecter des données :
+          </p>
+          <ul>
+            <li>Calendly (prise de rendez-vous)</li>
+            <li>Hébergeur du site</li>
+          </ul>
+          <p>
+            Ces services disposent de leurs propres politiques de confidentialité.
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h2>6. Durée de conservation</h2>
+          <p>
+            Les données personnelles sont conservées uniquement pendant la durée nécessaire
+            aux finalités pour lesquelles elles ont été collectées, sauf obligation légale contraire.
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h2>7. Sécurité des données</h2>
+          <p>
+            MyShifters met en œuvre des mesures techniques et organisationnelles afin de protéger
+            les données personnelles contre toute perte, accès non autorisé ou divulgation.
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h2>8. Droits des utilisateurs</h2>
+          <p>
+            Conformément au RGPD, l'utilisateur dispose des droits suivants :
+          </p>
+          <ul>
+            <li>Droit d'accès</li>
+            <li>Droit de rectification</li>
+            <li>Droit à l'effacement</li>
+            <li>Droit d'opposition</li>
+            <li>Droit à la limitation du traitement</li>
+          </ul>
+          <p>
+            Toute demande peut être adressée à : <strong>myshifters-extras@outlook.com</strong>
+          </p>
+        </div>
+
+        <div class="content-section">
+          <h2>9. Modification de la politique</h2>
+          <p>
+            MyShifters se réserve le droit de modifier la présente politique à tout moment.
+            La version en vigueur est celle publiée sur le site.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Contact - BOUTON EMAIL COMME PAGE CGU -->
+      <div class="privacy-contact" data-aos="fade-up" data-aos-delay="300">
+        <div class="contact-icon">
+          <i class="bi bi-envelope"></i>
+        </div>
+        <div class="contact-content">
+          <h2>Contact</h2>
+          <p>Pour toute question relative à la protection des données personnelles :</p>
+          <a href="mailto:myshifters-extras@outlook.com" class="contact-link">myshifters-extras@outlook.com</a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- /Privacy Section -->
+</main>
+
+<footer id="footer" class="footer">
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-5 col-md-12 footer-about">
+        <a href="../index.html" class="logo d-flex align-items-center">
+          <img src="../assets/img/Copy%20of%20SHIFTERS.svg" alt="Logo My Shifters" class="img-fluid">
+          <span class="sitename">MyShifters</span>
+        </a>
+        <p>My Shifters accompagne les hôtels, résidences et établissements haut de gamme dans la gestion de leurs besoins en personnel extra.</p>
+        <div class="mt-4">
+          <a class="btn-getstarted" href="../index.html#commande"><h4>Demander un extra</h4> </a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6 footer-links">
+        <h4>Liens Utiles</h4>
+        <ul>
+          <li><a href="../index.html#hero">Accueil</a></li>
+          <li><a href="../index.html#about">À propos</a></li>
+          <li><a href="../index.html#services">Nos Services</a></li>
+          <li><a href="../index.html#why-us">Nous choisir</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6 footer-links">
+        <h4>Documents Légaux</h4>
+        <ul>
+          <li><a href="mentions.html">Mentions légales</a></li>
+          <li><a href="privacy.html"  class="active">Politique de confidentialité</a></li>
+          <li><a href="cgu.html">CGU du site</a></li>
+          <li><a href="cgs.html">CGS Professionnelles</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+        <h4>Contactez-nous</h4>
+        <p>Disponible 7j/7 pour vos besoins urgents</p>
+        <p class="mt-4"><strong>Téléphone:</strong> <span>+33 7 49 06 03 05</span></p>
+        <p><strong>Email:</strong> <span>myshifters-extras@outlook.com</span></p>
+        <div class="emergency-badge mt-3">
+          <i class="bi bi-exclamation-triangle"></i>
+          <span>Urgence personnel ? Appelez-nous !</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container copyright text-center mt-4">
+    <p>© <span id="currentYear">2026</span> <strong>MyShifters.</strong> Tous droits réservés.</p>
+    <div class="legal-links mt-2 d-inline-flex flex-wrap justify-content-center gap-3">
+      <a href="mentions.html">Mentions légales</a>
+      <a href="privacy.html"  class="active">Politique de confidentialité</a>
+      <a href="cgu.html">Conditions générales d'utilisation</a>
+      <a href="cgs.html">Conditions générales de service</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Theme Toggle JS -->
+<script src="../theme-toggle.js"></script>
+
+<!-- Vendor JS Files -->
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/aos/aos.js"></script>
+<script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+<!-- Main JS File -->
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

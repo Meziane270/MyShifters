@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>MyShifters - General Terms of Service (GTS) </title>
+    <meta name="description" content="MyShifters General Terms of Service - Professional contract for hotel establishments. Consult our terms of use for the matchmaking services.">
+    <meta name="keywords" content="general terms of service, GTS, professional contract, hotel extras, MyShifters, terms of use, matchmaking platform">
+
+    <!-- Favicons -->
+    <link href="../assets/img/Copy%20of%20SHIFTERS.svg" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <!-- Theme Toggle CSS -->
+    <link href="../assets/css/theme-toggle.css" rel="stylesheet">
+
+    <!-- GTS Page Specific CSS -->
+    <style>
+        /* ============================================
+           GTS PAGE SPECIFIC STYLES
+           ============================================ */
+
+        /* Header Styling - Compact */
+        .gts-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .gts-header:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            color: var(--accent-color);
+            padding: 0.35rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+        }
+
+        .gts-header h2 {
+            color: var(--heading-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: var(--heading-font);
+        }
+
+        .gts-header p {
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Content Sections */
+        .gts-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+        }
+
+        .content-section h3 {
+            color: var(--heading-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            position: relative;
+            font-family: var(--heading-font);
+        }
+
+        .content-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .content-section p {
+            color: var(--default-color);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Important Note */
+        .important-note {
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .important-note p {
+            margin: 0;
+            color: var(--heading-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Definitions */
+        .definition-box {
+            background: color-mix(in srgb, var(--accent-color), transparent 95%);
+            border-left: 3px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .definition-box p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        .definition-term {
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        /* Lists */
+        .list-items {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin: 0.75rem 0;
+        }
+
+        .list-items li {
+            padding: 0.25rem 0;
+            position: relative;
+            color: var(--default-color);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .list-items li:before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Financial Schema */
+        .financial-schema {
+            background: color-mix(in srgb, var(--accent-color), transparent 92%);
+            border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .financial-schema ol {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .financial-schema li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Box */
+        .gts-contact {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .contact-box {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-content h4 {
+            color: var(--heading-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: var(--heading-font);
+        }
+
+        .contact-content p {
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: color-mix(in srgb, var(--accent-color), transparent 20%);
+            color: var(--contrast-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gts-page .main {
+                padding-top: 25px;
+            }
+
+            .gts-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section {
+                padding: 1.25rem;
+            }
+
+            .contact-box {
+                padding: 1.25rem;
+            }
+
+            .gts-contact {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gts-page .main {
+                padding-top: 20px;
+            }
+
+            .gts-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .content-section {
+                padding: 1rem;
+            }
+
+            .contact-box {
+                padding: 1rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="gts-page">
+
+<header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <img src="../assets/img/Copy%20of%20SHIFTERS.svg" alt="My Shifters Logo">
+            <h1 class="sitename">MyShifters</h1><span>.</span>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="../index.html#hero">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#why-us">Why Choose Us</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+
+                <!-- Language Dropdown -->
+                <li class="nav-item dropdown language-selector">
+                    <a class="dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../assets/img/drapeau-uk.svg" alt="English" class="flag-icon" width="20" height="15"> EN
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item" href="../fr/cgs.html">
+                                <img src="../assets/img/drapeau-fr.svg" alt="Français" class="flag-icon" width="20" height="15"> FR
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img src="../assets/img/drapeau-uk.svg" alt="English" class="flag-icon" width="20" height="15"> EN
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Theme Toggle Button -->
+                <li class="theme-toggle-container">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                        <i class="bi bi-sun-fill"></i>
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted" href="../index.html#contact">Request an extra</a>
+    </div>
+</header>
+
+<main class="main">
+
+    <!-- General Terms of Service Section -->
+    <section id="general-terms-service" class="general-terms-service section">
+
+        <div class="container" data-aos="fade-up">
+
+            <!-- Page Header -->
+            <div class="gts-header text-center">
+                <span class="last-updated" lang="en">Effective Date: January 27th, 2025</span>
+                <h2>General Terms of Service (GTS)</h2>
+                <p>Professional contract governing the use of MyShifters matchmaking services</p>
+            </div>
+
+            <!-- Content -->
+            <div class="gts-content" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="important-note">
+                    <p><strong>IMPORTANT NOTICE:</strong> These General Terms of Service (GTS) constitute a legally binding contract between the Client Establishment and MYSHIFTERS. By accepting these GTS, you acknowledge that you have read, understood, and accepted all of their provisions. It is recommended to print and/or keep them.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 1 - PURPOSE AND DEFINITIONS</h3>
+
+                    <h4>1.1 Purpose</h4>
+                    <p>These General Terms of Service (hereinafter the "GTS") aim to define the conditions under which the company <strong>MYSHIFTERS</strong> (hereinafter "the Platform") provides Client Establishments (hereinafter "the Client") with a matchmaking service with self-employed workers registered as sole proprietors (hereinafter "the Provider(s)") for the execution of temporary assignments (hereinafter "the Assignment") within the Client's establishment.</p>
+
+                    <div class="important-note">
+                        <p><strong>ROLE OF MYSHIFTERS:</strong> MYSHIFTERS acts exclusively as a <strong>technical and administrative matchmaking platform</strong>. MYSHIFTERS is not an employer, exercises no supervisory authority over Providers, and is not a party to the Assignment execution contract that is established directly between the Client and the Provider. MYSHIFTERS acts as a payment agent and matchmaking organizer.</p>
+                    </div>
+
+                    <h4>1.2 Definitions</h4>
+                    <div class="definition-box">
+                        <p><span class="definition-term">"Platform"</span>: Refers to the MYSHIFTERS digital service, accessible by any electronic means, enabling matchmaking between Clients and Providers.</p>
+                        <p><span class="definition-term">"Client"</span>: Any hotel establishment, tourist residence, or leisure establishment that has subscribed to these GTS to order Assignments.</p>
+                        <p><span class="definition-term">"Provider"</span>: Self-employed worker registered as a sole proprietor, having signed an Independent Service Agreement with MYSHIFTERS, and registered on the Platform to execute Assignments.</p>
+                        <p><span class="definition-term">"Assignment"</span>: Temporary and specific service provision, defined by a position (e.g., receptionist, housekeeper), a date, specific hours, and an exact execution location, entrusted by a Client to a Provider via the Platform.</p>
+                        <p><span class="definition-term">"Commission"</span>: Platform remuneration, corresponding to a percentage of the total Assignment amount, deducted from the payment made by the Client before transfer to the Provider.</p>
+                        <p><span class="definition-term">"Assignment Contract"</span>: Direct and specific commercial agreement that is formed between the Client and the Provider upon the Provider's acceptance of an Assignment proposed via the Platform.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 2 - ACCEPTANCE AND REGISTRATION</h3>
+                    <p>2.1 Access to the Service is reserved for professionals. Any registration on the Platform constitutes full and complete acceptance of these GTS.</p>
+                    <p>2.2 The Client guarantees the accuracy and truthfulness of the information provided during registration (company name, SIRET, address, legal representative).</p>
+                    <p>2.3 The Client's account is personal and confidential. The Client is responsible for any use made of their account.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 3 - ASSIGNMENT ORDERING PROCESS</h3>
+                    <p>3.1 The Client submits an Assignment request via the Platform, by email, or by phone, specifying: the required position, date, hours, location, and any specific necessary skills.</p>
+                    <p>3.2 MYSHIFTERS searches among its available and qualified Providers and proposes one or several profiles to the Client.</p>
+                    <p>3.3 The Client selects the proposed Provider. This selection constitutes an Assignment offer.</p>
+                    <p>3.4 MYSHIFTERS transmits the Assignment offer to the Provider. The Assignment is confirmed only when the Provider explicitly accepts it.</p>
+                    <p>3.5 MYSHIFTERS notifies the Client of the Assignment confirmation, with the Provider's contact details.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 4 - CLIENT OBLIGATIONS</h3>
+                    <p>4.1 The Client undertakes to provide the Provider with a <strong>safe working environment</strong> compliant with applicable regulations.</p>
+                    <p>4.2 The Client must welcome the Provider, provide them with the instructions and information necessary for the proper execution of the Assignment, as well as establishment-specific equipment if necessary (e.g., reservation software, badge).</p>
+                    <p>4.3 The Client will treat the Provider with respect and acknowledge their status as an <strong>independent contractor</strong>. No supervisory relationship should be exercised.</p>
+                    <p>4.4 The Client must report to MYSHIFTERS, as soon as possible, any problem occurring during the execution of the Assignment.</p>
+                    <p>4.5 The Client undertakes not to enter into direct relations with a Provider met via the Platform to commission Assignments outside the Platform, for a period of <strong>12 months</strong> following the last Assignment performed via MYSHIFTERS (non-circumvention clause).</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 5 - PRICING, INVOICING AND PAYMENT</h3>
+
+                    <h4>5.1 Pricing</h4>
+                    <p>Assignment prices are communicated to the Client before validation. They vary according to position, duration, timing (weekend, public holiday) and request lead time (emergency). Prices are indicated in Euros, all taxes included (VAT included).</p>
+
+                    <h4>5.2 Invoicing and Payment by the Client</h4>
+                    <p>5.2.1 MYSHIFTERS sends the Client an <strong>invoice</strong> for the total Assignment amount, upon confirmation of the Assignment.</p>
+                    <p>5.2.2 The invoice payment is due upon receipt. The payment term is <strong>30 days end of month</strong> from the invoice date.</p>
+                    <p>5.2.3 Payment is made by bank transfer to the account indicated on the invoice.</p>
+                    <p>5.2.4 Any late payment automatically entails penalties equal to three times the legal interest rate, and a fixed compensation of €40 for recovery costs.</p>
+
+                    <h4>5.3 Provider Remuneration</h4>
+                    <p>5.3.1 MYSHIFTERS transfers to the Provider the agreed amount for the Assignment, after deducting its Commission.</p>
+                    <p>5.3.2 <strong>Absolute suspensive condition:</strong> The transfer only occurs after MYSHIFTERS receives a <strong>regular invoice</strong> issued by the Provider in the name of MYSHIFTERS, corresponding precisely to the executed Assignment.</p>
+                    <p>5.3.3 The transfer period to the Provider is <strong>7 working days</strong> after receipt of full payment from the Client by MYSHIFTERS.</p>
+
+                    <div class="financial-schema">
+                        <p><strong>FINANCIAL SCHEMA:</strong></p>
+                        <ol>
+                            <li>Client pays €100 VAT included to MYSHIFTERS for an Assignment.</li>
+                            <li>MYSHIFTERS deducts its Commission (e.g., 20%).</li>
+                            <li>MYSHIFTERS receives the €80 invoice from the Provider.</li>
+                            <li>MYSHIFTERS transfers €80 to the Provider.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 6 - LIABILITIES AND WARRANTIES</h3>
+
+                    <h4>6.1 Role and Limited Liability of MYSHIFTERS</h4>
+                    <p>6.1.1 MYSHIFTERS uses its best efforts to propose qualified Providers, but does not guarantee Assignment results. The final selection of the Provider belongs to the Client.</p>
+                    <p>6.1.2 <strong>MYSHIFTERS IS IN NO WAY RESPONSIBLE</strong> for the execution of the Assignment, which falls under the direct relationship between the Client and the Provider. MYSHIFTERS declines any responsibility in case of fault, negligence, damage, or theft attributable to the Provider or the Client.</p>
+                    <p>6.1.3 MYSHIFTERS is not responsible for cancellations, delays, or absences of a Provider, but undertakes to do its utmost to find a replacement as soon as possible.</p>
+
+                    <h4>6.2 Client Liability</h4>
+                    <p>The Client is solely responsible for verifying the Provider's skills for the Assignment, their welcome and supervision on site. The Client is responsible for the security of their property, premises, and own staff.</p>
+
+                    <h4>6.3 Insurance</h4>
+                    <p>6.3.1 MYSHIFTERS is covered by <strong>Professional Civil Liability</strong> insurance for its matchmaking activity.</p>
+                    <p>6.3.2 Each Provider registered on the Platform must hold <strong>valid Professional Civil Liability insurance</strong> covering their activity. MYSHIFTERS verifies this insurance upon registration but cannot guarantee its maintenance. The Client may request a certificate from the Provider.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 7 - CANCELLATION AND MODIFICATION</h3>
+                    <p>7.1 <strong>Cancellation by the Client:</strong></p>
+                    <ul class="list-items">
+                        <li>More than 72h before the Assignment: No charge.</li>
+                        <li>Between 72h and 24h before the Assignment: Billing of 50% of the Assignment amount.</li>
+                        <li>Less than 24h before the Assignment: Billing of 100% of the Assignment amount.</li>
+                    </ul>
+                    <p>7.2 <strong>Cancellation by the Provider:</strong> MYSHIFTERS undertakes to actively seek a replacement Provider. If impossible, the Assignment is cancelled at no cost to the Client.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 8 - PERSONAL DATA</h3>
+                    <p>The personal data collected is processed in accordance with our <a href="privacy.html">Privacy Policy</a>. It is used for Assignment management, invoicing, and commercial relationship.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 9 - INTELLECTUAL PROPERTY</h3>
+                    <p>The Platform, its content, know-how, and database are the exclusive property of MYSHIFTERS. The Client undertakes not to reproduce or use them without authorization.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 10 - DURATION, TERMINATION AND SUSPENSION</h3>
+                    <p>10.1 These GTS are concluded for an indefinite period from their acceptance.</p>
+                    <p>10.2 Either party may terminate them at any time, by written notice with a <strong>30-day</strong> notice period.</p>
+                    <p>10.3 In case of serious breach by one party of its obligations, the other party may terminate these GTS immediately, by operation of law.</p>
+                    <p>10.4 MYSHIFTERS reserves the right to immediately suspend the Client's access to the Platform in case of payment default or behavior contrary to these GTS.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 11 - DISPUTES AND APPLICABLE LAW</h3>
+                    <p>11.1 These GTS are governed by French law.</p>
+                    <p>11.2 In case of dispute, the parties undertake to seek an amicable solution before any legal action.</p>
+                    <p>11.3 Failing amicable agreement, any dispute shall fall under the exclusive jurisdiction of the <strong>Competent Courts of MYSHIFTERS' registered office</strong>, notwithstanding plurality of defendants or third-party proceedings.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>ARTICLE 12 - MISCELLANEOUS PROVISIONS</h3>
+                    <p>12.1 <strong>Modification:</strong> MYSHIFTERS reserves the right to modify these GTS. New versions will be notified by email and available on the Platform. Their continued use constitutes acceptance.</p>
+                    <p>12.2 <strong>Partial Nullity:</strong> If any clause of these GTS were deemed invalid, the other clauses would remain fully in force.</p>
+                    <p>12.3 <strong>Entirety:</strong> These GTS constitute the entire agreement between the parties regarding the subject matter of the GTS.</p>
+                </div>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="gts-contact" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h4>To accept these GTS</h4>
+                        <p>Acceptance can be made by return email stating "I accept the GTS", by electronic signature, or by any means showing clear consent.</p>
+                        <a href="mailto:myshifters-extras@outlook.com?subject=Acceptance%20of%20MyShifters%20GTS&body=I%20the%20undersigned%20%5BFirst%20Name%20Last%20Name%5D%2C%20representative%20of%20%5BCOMPANY%20NAME%5D%2C%20accept%20the%20General%20Terms%20of%20Service%20of%20MyShifters." class="contact-link">Accept by email</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer id="footer" class="footer">
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="../index.html" class="logo d-flex align-items-center">
+                    <img src="../assets/img/Copy%20of%20SHIFTERS.svg" alt="My Shifters Logo" class="img-fluid">
+                    <span class="sitename">MyShifters</span>
+                </a>
+                <p>My Shifters supports hotels, residences, and high-end establishments in managing their temporary staffing needs.</p>
+                <div class="mt-4">
+                    <a class="btn-getstarted" href="../index.html#commande"><h4>Request an extra</h4> </a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="../index.html#hero">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#services">Our Services</a></li>
+                    <li><a href="../index.html#why-us">Why Choose Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Legal Documents</h4>
+                <ul>
+                    <li><a href="mentions.html">Legal Notice</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="cgu.html">Website Terms of Use</a></li>
+                    <li><a href="cgs.html" class="active">Professional Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4>Contact Us</h4>
+                <p>Available 7/7 for your urgent needs</p>
+                <p class="mt-4"><strong>Phone:</strong> <span>+33 7 49 06 03 05</span></p>
+                <p><strong>Email:</strong> <span>myshifters-extras@outlook.com</span></p>
+                <div class="emergency-badge mt-3">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <span>Staffing emergency? Call us!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+        <p>© <span id="currentYear">2026</span> <strong>MyShifters.</strong> All rights reserved.</p>
+        <div class="legal-links mt-2 d-inline-flex flex-wrap justify-content-center gap-3">
+            <a href="mentions.html" class="me-3">Legal Notice</a>
+            <a href="privacy.html" class="me-3">Privacy Policy</a>
+            <a href="cgu.html">Terms of Use</a>
+            <a href="cgs.html" class="active">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Theme Toggle JS -->
+<script src="../theme-toggle.js"></script>
+
+<!-- Vendor JS Files -->
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/aos/aos.js"></script>
+<script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+<!-- Main JS File -->
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>
