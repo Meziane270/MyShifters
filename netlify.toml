@@ -1,3 +1,4 @@
 [build]
 publish = "."
-command = "echo Building"
+# Cette commande crée un fichier env.js contenant votre clé configurée sur Netlify
+command = "echo \"window.__ENV__ = { EMAILJS_PUBLIC_KEY: '$EMAILJS_PUBLIC_KEY' };\" > env.js"
