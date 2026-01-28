@@ -36,6 +36,12 @@ window.initUnifiedForm = function(langConfig) {
             return;
         }
 
+        // 🔒 Anti double initialisation (CRITIQUE)
+        if (form.dataset.initialized === 'true') {
+            return;
+        }
+        form.dataset.initialized = 'true';
+
         cacheFormElements();
         initFlatpickr();
         initTimeSelects();
