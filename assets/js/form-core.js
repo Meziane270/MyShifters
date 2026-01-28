@@ -27,6 +27,7 @@ window.initUnifiedForm = function(langConfig) {
     let datePickerInstance = null;
     const formElements = {};
     let calendlyModal = null;
+    let isSubmitting = false; // Sécurité anti-double envoi
 
     // ================== INITIALIZATION ==================
     function init() {
@@ -193,7 +194,10 @@ window.initUnifiedForm = function(langConfig) {
     }
 
     // Helper to get required suffix (can be overridden by langConfig)
-    const _getRequiredSuffix = getRequiredSuffix || function(fieldName) {
+    const _getRequiredSuffix = function(fieldName) {
+        if (typeof getRequiredSuffix === 'function') {
+            return getRequiredSuffix(fieldName);
+        }
         if (typeof text.validation.required === 'string') {
             return text.validation.required;
         }
@@ -201,7 +205,10 @@ window.initUnifiedForm = function(langConfig) {
     };
 
     // Helper to get field label (can be overridden by langConfig)
-    const _getFieldLabel = getFieldLabel || function(fieldName) {
+    const _getFieldLabel = function(fieldName) {
+        if (typeof getFieldLabel === 'function') {
+            return getFieldLabel(fieldName);
+        }
         if (fieldLabels && fieldLabels[fieldName]) {
             return fieldLabels[fieldName];
         }
@@ -339,6 +346,10 @@ window.initUnifiedForm = function(langConfig) {
 
     async function handleFormSubmit(e) {
         e.preventDefault();
+        e.stopPropagation();
+
+        if (isSubmitting) return;
+
         hideMessages();
 
         if (!validateForm()) {
@@ -346,6 +357,7 @@ window.initUnifiedForm = function(langConfig) {
             return;
         }
 
+        isSubmitting = true;
         formElements.submitBtn.disabled = true;
         const originalBtnContent = formElements.submitBtn.innerHTML;
         formElements.submitBtn.innerHTML = text.submission.sending;
@@ -365,34 +377,33 @@ window.initUnifiedForm = function(langConfig) {
             );
 
             const timeoutPromise = new Promise((_, reject) =>
-                setTimeout(() => reject(new Error(text.submission.error.timeout)), 15000)
+                setTimeout(() => reject(new Error('TIMEOUT')), 20000)
             );
 
             const response = await Promise.race([emailPromise, timeoutPromise]);
 
-            if (response && response.status === 200) {
+            if (response && (response.status === 200 || response.text === 'OK')) {
                 showUserMessage(text.submission.success, 'success');
                 resetForm();
             } else {
-                throw new Error(text.submission.error.server);
+                throw new Error('SERVER_ERROR');
             }
 
         } catch (error) {
             console.error('Form Error:', error);
             let errorMessage = text.submission.error.generic;
 
-            if (error.message === text.submission.error.timeout) {
+            if (error.message === 'TIMEOUT') {
                 errorMessage = text.submission.error.timeout;
-            } else if (error.message.includes('The public key is required')) {
-                errorMessage = 'EmailJS Public Key is missing. Check your configuration.';
-            } else if (error.message.includes('Network Error')) {
-                errorMessage = text.submission.error.service;
-            } else if (error.message === text.submission.error.server) {
+            } else if (error.message.includes('public key')) {
+                errorMessage = 'EmailJS Public Key is missing.';
+            } else if (error.message === 'SERVER_ERROR') {
                 errorMessage = text.submission.error.server;
             }
 
             showUserMessage('❌ ' + errorMessage, 'error');
         } finally {
+            isSubmitting = false;
             formElements.submitBtn.disabled = false;
             formElements.submitBtn.innerHTML = originalBtnContent;
 
