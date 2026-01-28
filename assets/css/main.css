@@ -777,8 +777,6 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -1941,5 +1939,28 @@ section,
     border-bottom: 0;
     border-left: 0.3em solid transparent;
   }
+}
+
+/* Error message styling */
+.validate {
+  color: #dc3545 !important;
+  font-size: 0.875em !important;
+  margin-top: 0.25rem !important;
+  display: none;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.error-message {
+  color: #dc3545 !important;
+  background-color: #f8d7da !important;
+  border: 1px solid #f5c6cb !important;
 }
 

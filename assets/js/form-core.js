@@ -1,6 +1,6 @@
 /**
  * Core logic for the unified contact form.
- * This file contains all the shared functionality between the French and English versions.
+ * This file contains all the SHARED functionality between French and English versions.
  * Language-specific configurations are passed via the langConfig object.
  */
 window.initUnifiedForm = function(langConfig) {
@@ -16,7 +16,9 @@ window.initUnifiedForm = function(langConfig) {
         getShiftTimeFrench,
         serviceLabels,
         formLanguageName,
-        fieldLabels
+        fieldLabels,
+        getFieldLabel, // Optional override
+        getRequiredSuffix // Optional override
     } = langConfig;
 
     // ================== STATE & CACHE ==================
@@ -68,48 +70,28 @@ window.initUnifiedForm = function(langConfig) {
             pms: form.querySelector('[name="pms"]'),
             company_website: form.querySelector('[name="company_website"]')
         };
-
-        // Language-specific caching for AM/PM radio buttons (English only)
-        if (lang === 'en') {
-            formElements.amPm = {
-                shiftStartAM: document.getElementById('shiftStartAM'),
-                shiftStartPM: document.getElementById('shiftStartPM'),
-                shiftEndAM: document.getElementById('shiftEndAM'),
-                shiftEndPM: document.getElementById('shiftEndPM')
-            };
-        }
     }
 
-    // ================== FLATPICKR ==================
     // ================== FLATPICKR ==================
     function initFlatpickr() {
         if (!formElements.datePickerInput) return;
 
-        // Fonction de callback pour le changement de dates
         function handleDateChange(selectedDates) {
             updateSelectedDatesList(selectedDates);
             validateDateField();
         }
 
-        // Vérifier si Flatpickr est chargé
         if (typeof flatpickr === 'undefined') {
-            console.warn('Flatpickr non chargé, utilisation du fallback');
+            console.warn('Flatpickr not loaded');
             fallbackDateInput();
             return;
         }
 
         try {
-            // Vérifier si la locale existe
-            let actualLocale = flatpickrLocale;
-            if (flatpickrLocale !== 'default' && (!flatpickr.l10ns || !flatpickr.l10ns[flatpickrLocale])) {
-                console.warn(`Locale ${flatpickrLocale} non trouvée, utilisation de 'default'`);
-                actualLocale = 'default';
-            }
-
             datePickerInstance = flatpickr("#datePicker", {
                 mode: "multiple",
                 dateFormat: "d/m/Y",
-                locale: actualLocale,
+                locale: flatpickrLocale,
                 minDate: "today",
                 onChange: handleDateChange
             });
@@ -121,10 +103,9 @@ window.initUnifiedForm = function(langConfig) {
 
     function fallbackDateInput() {
         if (formElements.datePickerInput) {
-            // Simple message d'erreur
             formElements.datePickerInput.type = 'text';
             formElements.datePickerInput.readOnly = true;
-            formElements.datePickerInput.placeholder = "Sélection de dates temporairement indisponible";
+            formElements.datePickerInput.placeholder = "Date selection temporarily unavailable";
             formElements.datePickerInput.style.color = '#999';
         }
     }
@@ -160,56 +141,11 @@ window.initUnifiedForm = function(langConfig) {
 
     // ================== TIME SELECTS ==================
     function initTimeSelects() {
-        if (lang === 'fr') {
-            generateTimeOptions24h('shiftStart', config.TIME.defaultStart);
-            generateTimeOptions24h('shiftEnd', config.TIME.defaultEnd);
-        } else if (lang === 'en') {
-            // Set default values for time selects (12h format)
-            if (formElements.fields.shiftStart) {
-                formElements.fields.shiftStart.value = config.TIME.defaultStart;
-            }
-            if (formElements.fields.shiftEnd) {
-                formElements.fields.shiftEnd.value = config.TIME.defaultEnd;
-            }
-
-            // Set default AM/PM values
-            if (formElements.amPm) {
-                if (config.TIME.defaultStartAmPm === 'AM' && formElements.amPm.shiftStartAM) {
-                    formElements.amPm.shiftStartAM.checked = true;
-                } else if (formElements.amPm.shiftStartPM) {
-                    formElements.amPm.shiftStartPM.checked = true;
-                }
-
-                if (config.TIME.defaultEndAmPm === 'AM' && formElements.amPm.shiftEndAM) {
-                    formElements.amPm.shiftEndAM.checked = true;
-                } else if (formElements.amPm.shiftEndPM) {
-                    formElements.amPm.shiftEndPM.checked = true;
-                }
-            }
+        if (formElements.fields.shiftStart && config.TIME.defaultStart) {
+            formElements.fields.shiftStart.value = config.TIME.defaultStart;
         }
-    }
-
-    // Only used for French (24h format)
-    function generateTimeOptions24h(selectId, defaultValue) {
-        const select = document.getElementById(selectId);
-        if (!select) return;
-
-        const placeholder = selectId === 'shiftStart' ?
-            text.validation.selectPlaceholder.start :
-            text.validation.selectPlaceholder.end;
-
-        select.innerHTML = `<option value="">${placeholder}</option>`;
-
-        for (let hour = 0; hour < 24; hour++) {
-            for (let minute = 0; minute < 60; minute += 15) {
-                const timeValue = hour.toString().padStart(2, '0') + ':' + minute.toString().padStart(2, '0');
-                const timeDisplay = hour.toString().padStart(2, '0') + 'h' + (minute === 0 ? '00' : minute.toString());
-                const option = document.createElement('option');
-                option.value = timeValue;
-                option.textContent = timeDisplay;
-                if (timeValue === defaultValue) option.selected = true;
-                select.appendChild(option);
-            }
+        if (formElements.fields.shiftEnd && config.TIME.defaultEnd) {
+            formElements.fields.shiftEnd.value = config.TIME.defaultEnd;
         }
     }
 
@@ -256,36 +192,22 @@ window.initUnifiedForm = function(langConfig) {
         });
     }
 
-    // Ligne 302-316, REMPLACEZ par :
-    function getRequiredSuffix(fieldName) {
-        // Si text.validation.required est une chaîne, retournez-la directement
+    // Helper to get required suffix (can be overridden by langConfig)
+    const _getRequiredSuffix = getRequiredSuffix || function(fieldName) {
         if (typeof text.validation.required === 'string') {
             return text.validation.required;
         }
+        return text.validation.required?.default || '';
+    };
 
-        // Si c'est un objet avec masculine/feminine (ancienne version)
-        if (lang === 'fr' && text.validation.required && typeof text.validation.required === 'object') {
-            // Simple logique de genre
-            const feminineFields = ['position', 'hotel_address', 'city', 'department', 'message'];
-            const isFeminine = feminineFields.includes(fieldName);
-
-            return isFeminine ?
-                (text.validation.required.feminine || ' est requise') :
-                (text.validation.required.masculine || ' est requis');
-        }
-
-        // Fallback par défaut
-        return ' est requis';
-    }
-
-    function getFieldLabel(fieldName) {
-        // Use the provided fieldLabels map, or fallback to the field's placeholder/name
+    // Helper to get field label (can be overridden by langConfig)
+    const _getFieldLabel = getFieldLabel || function(fieldName) {
         if (fieldLabels && fieldLabels[fieldName]) {
             return fieldLabels[fieldName];
         }
         const field = formElements.fields[fieldName];
         return field ? (field.placeholder || field.name) : fieldName;
-    }
+    };
 
     function validateField(fieldName) {
         const field = formElements.fields[fieldName];
@@ -295,17 +217,15 @@ window.initUnifiedForm = function(langConfig) {
         let isValid = true;
         let errorMessage = '';
 
-        // List of fields that are required and should be validated
         const requiredFields = ['contact_name', 'contact_phone', 'contact_email', 'position',
             'hotel_name', 'hotel_address', 'city', 'department',
             'serviceType', 'shiftStart', 'shiftEnd'
         ];
 
         if (field.required || requiredFields.includes(fieldName)) {
-
             if (!value) {
                 isValid = false;
-                errorMessage = getFieldLabel(fieldName) + getRequiredSuffix(fieldName);
+                errorMessage = _getFieldLabel(fieldName) + _getRequiredSuffix(fieldName);
             } else {
                 switch (fieldName) {
                     case 'contact_phone':
@@ -321,17 +241,11 @@ window.initUnifiedForm = function(langConfig) {
                         }
                         break;
                     case 'serviceType':
-                        if (value === '') {
-                            isValid = false;
-                            errorMessage = getFieldLabel(fieldName) + getRequiredSuffix(fieldName);
-                        }
-                        break;
                     case 'shiftStart':
                     case 'shiftEnd':
-                        // Time validation is handled by the select element's required attribute and the empty option
                         if (value === '') {
                             isValid = false;
-                            errorMessage = getFieldLabel(fieldName) + getRequiredSuffix(fieldName);
+                            errorMessage = _getFieldLabel(fieldName) + _getRequiredSuffix(fieldName);
                         }
                         break;
                 }
@@ -348,23 +262,18 @@ window.initUnifiedForm = function(langConfig) {
     }
 
     function validateDateField() {
-        const fieldName = 'bookingDates';
         const field = formElements.bookingDatesHidden;
         if (!field) return true;
 
         const value = field.value.trim();
         let isValid = true;
-        let errorMessage = '';
 
-        if (field.required && !value) {
+        if (!value) {
             isValid = false;
-            errorMessage = text.validation.invalid.dates;
-        }
-
-        if (!isValid) {
-            displayFieldError(fieldName, errorMessage);
+            const errorMessage = text.validation.invalid.dates;
+            displayFieldError('bookingDates', errorMessage);
         } else {
-            clearFieldError(fieldName);
+            clearFieldError('bookingDates');
         }
 
         return isValid;
@@ -386,6 +295,9 @@ window.initUnifiedForm = function(langConfig) {
 
         errorDiv.textContent = message;
         errorDiv.style.display = 'block';
+        errorDiv.style.color = '#dc3545';
+        errorDiv.style.fontSize = '0.875em';
+        errorDiv.style.marginTop = '0.25rem';
         field.classList.add('is-invalid');
     }
 
@@ -406,16 +318,13 @@ window.initUnifiedForm = function(langConfig) {
 
     function validateForm() {
         let isValid = true;
-        // Validate all fields
         Object.keys(formElements.fields).forEach(fieldName => {
-            // Ensure all fields are "touched" for validation on submit
             touchedFields.add(fieldName);
             if (!validateField(fieldName)) {
                 isValid = false;
             }
         });
 
-        // Validate date field separately
         if (!validateDateField()) {
             isValid = false;
         }
@@ -496,7 +405,6 @@ window.initUnifiedForm = function(langConfig) {
     function prepareTemplateParams() {
         const formData = new FormData(form);
 
-        // 1. Get form values
         const contact_name = formData.get('contact_name');
         const contact_phone = formData.get('contact_phone');
         const contact_email = formData.get('contact_email');
@@ -509,13 +417,11 @@ window.initUnifiedForm = function(langConfig) {
         const pms = formData.get('pms');
         const message = formData.get('message');
 
-        // 2. Date processing
         const bookingDatesValue = formElements.bookingDatesHidden ? formElements.bookingDatesHidden.value : '';
         let bookingDatesSimple = '';
         let bookingDatesDetailed = '';
 
         if (bookingDatesValue) {
-            // Simple format (e.g., 01/12/2025)
             bookingDatesSimple = bookingDatesValue.split(',').map(dateStr => {
                 const [year, month, day] = dateStr.split('-');
                 return `${day}/${month}/${year}`;
@@ -533,14 +439,10 @@ window.initUnifiedForm = function(langConfig) {
             }).join(', ');
         }
 
-        // 3. Time processing
         const shiftStartFrench = getShiftTimeFrench('shiftStart');
         const shiftEndFrench = getShiftTimeFrench('shiftEnd');
-
-        // 4. Service label translation (to French for the EmailJS template)
         const serviceTypeFrench = serviceLabels[serviceType] || 'Autre';
 
-        // 5. Create parameters for EmailJS
         return {
             contact_name: contact_name,
             contact_phone: contact_phone,
@@ -550,7 +452,7 @@ window.initUnifiedForm = function(langConfig) {
             hotel_address: hotel_address,
             city: city,
             department: department,
-            serviceType: serviceTypeFrench, // Always French for the template
+            serviceType: serviceTypeFrench,
             pms: pms || 'Non spécifié',
             bookingDatesHidden: bookingDatesSimple,
             bookingDatesArray: bookingDatesDetailed,
@@ -625,11 +527,8 @@ window.initUnifiedForm = function(langConfig) {
     function initCalendlyModal() {
         const modalElement = document.getElementById('calendlyModal');
         if (modalElement) {
-            // Check if bootstrap is available
             if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
                 calendlyModal = new bootstrap.Modal(modalElement);
-            } else {
-                console.warn('Bootstrap Modal not found. Calendly modal functionality will be limited.');
             }
 
             const confirmBtn = document.getElementById('confirmCalendly');
@@ -703,5 +602,3 @@ window.convert24hToFrench = function(time24h) {
     const [hours, minutes] = time24h.split(':');
     return `${hours}h${minutes === '00' ? '00' : minutes}`;
 };
-
-
